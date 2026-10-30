@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO SITE_URL: npm run configure kreira sitemap.xml tek uz potvrđen produkcioni domen.
+     Sedam glavnih stranica definisanih u pages.json; index.html i index-5.html su aliasi početne.
+     Pravni nacrti ostaju noindex i izvan sitemap-a dok se ne dovrše. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>

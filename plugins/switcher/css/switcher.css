@@ -1,0 +1,175 @@
+/* styleswitcher-left */
+.styleswitcher .switcher-title {
+    font-weight: 800;
+    margin: 10px 5px;
+    text-transform: uppercase;
+}
+.styleswitcher {
+    background-color: #ffffff;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    left: -220px;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 220px;
+    z-index: 999;
+}
+.styleswitcher-inner {
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+	text-align: center;
+}
+.styleswitcher .switcher-btn-bx {
+    box-shadow: 7px 0 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: -40px;
+    top: 200px;
+}
+/* styleswitcher-left End*/
+/* styleswitcher-right */
+.styleswitcher-right .switcher-title {
+    font-weight: 500;
+    margin: 10px 5px;
+    text-transform: uppercase;
+	border-bottom: 1px solid #d0d0d0;
+	padding-bottom: 5px;
+}
+.styleswitcher-right {
+    background-color: #ffffff;
+    box-shadow: -3px 1px 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    right: -220px;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 220px;
+    z-index: 999;
+}
+.styleswitcher-right .switcher-btn-bx {
+    position: absolute;
+    left: -40px;
+    top: 200px;
+}
+.styleswitcher-right .switch-btn { 
+	box-shadow:-3px 1px 5px rgba(0, 0, 0, 0.1); 
+	border-radius: 4px 0 0 4px;
+}
+/* styleswitcher-right End */
+.switch-btn {
+    background: #000 none repeat scroll 0 0;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 21px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+}
+.switch-btn:hover {
+	color:#fff;	
+}
+.layout-view, .nav-view, .header-view, .color-skins, .pattern-switcher, .background-switcher {
+    margin: 0;
+    padding: 0;
+}
+.layout-view li, .nav-view li, .header-view li {
+    border: 1px solid #000;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    margin: 5px;
+    min-width: 70px;
+    padding: 5px 15px;
+    text-align: center;
+	border-radius: 4px;
+}
+.layout-view li.active, .nav-view li.active, .header-view li.active {
+    border: 1px solid #333333;
+    color: #fff;
+	background-color:#000;
+}
+.color-skins li {
+    cursor: pointer;
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 4px 10px;
+}
+.color-skins li a {
+    display: block;
+    height: 35px;
+    width: 35px;
+}
+.color-skins li .skin-1 {
+    background-color: #FDC716;
+}
+.color-skins li .skin-2 {
+    background-color: #00B2FF;
+}
+.color-skins li .skin-3 {
+    background-color: #F0542C;
+}
+.color-skins li .skin-4 {
+    background-color: #35B494;
+}
+.color-skins li .skin-5 {
+    background-color: #E56713;
+}
+.color-skins li .skin-6 {
+    background-color: #9F5BA4;
+}
+.color-skins li .skin-7 {
+    background-color: #EF2E73;
+}
+.color-skins li .skin-8 {
+    background-color: #E50305;
+}
+.background-switcher li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px;
+    width: 25%;
+}
+.pattern-switcher li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 3px;
+    width: 16.66%;
+}
+/* Buy Now */
+.buy-now-btn {
+    background: #81b441 none repeat scroll 0 0;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    font-family: open sans;
+    font-weight: 600;
+    padding: 10px 20px;
+    position: fixed;
+    right: -90px;
+    text-transform: uppercase;
+    top: 50%;
+    transition: all 0.5s;
+	z-index:999;
+}
+.buy-now-btn i{
+	font-size:16px;
+}
+.buy-now-btn:hover {
+	right:-1px;
+	transition: all 0.5s;
+	color:#fff;
+}
+.buy-now-btn i{
+	margin-right:10px;
+}
+.switcher-btn-bx .switch-btn{
+	color: #fff!important;
+}

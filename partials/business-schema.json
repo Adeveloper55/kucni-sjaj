@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Čisto Dom",
+  "description": "Čišćenje stanova i kuća u Beogradu.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Beograd"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Usluge čišćenja doma",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "name": "Redovno čišćenje"
+      },
+      {
+        "@type": "Service",
+        "name": "Generalno čišćenje"
+      },
+      {
+        "@type": "Service",
+        "name": "Čišćenje nakon renoviranja"
+      },
+      {
+        "@type": "Service",
+        "name": "Čišćenje pri useljenju ili iseljenju"
+      },
+      {
+        "@type": "Service",
+        "name": "Čišćenje kuhinje i kupatila"
+      },
+      {
+        "@type": "Service",
+        "name": "Pranje prozora"
+      }
+    ]
+  }
+}

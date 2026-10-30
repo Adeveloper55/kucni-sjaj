@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /.template-backup/
+Disallow: /docs/
+Disallow: /scripts/
+Disallow: /content/
+Disallow: /partials/
+Sitemap: https://kucnisjaj.audaxtestsajt.com/sitemap.xml

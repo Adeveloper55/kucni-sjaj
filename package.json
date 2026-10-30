@@ -1,0 +1,16 @@
+{
+  "name": "cisto-dom-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Čišćenje stanova i kuća u Beogradu — postojeći HTML template, faza 1.",
+  "scripts": {
+    "predev": "node scripts/configure-site.mjs",
+    "dev": "node scripts/serve.mjs",
+    "prestart": "node scripts/configure-site.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/configure-site.mjs",
+    "configure": "node scripts/configure-site.mjs",
+    "check": "python scripts/audit.py"
+  },
+  "engines": { "node": ">=18" }
+}

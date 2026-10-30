@@ -1,0 +1,9 @@
+.git
+node_modules
+*.log
+.DS_Store
+preview*.png
+docs
+.template-backup
+mirror-report.json
+**/*.md

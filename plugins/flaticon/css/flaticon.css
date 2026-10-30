@@ -1,0 +1,65 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 03/11/2017 10:31
+  	*/
+
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../font/Flaticon.eot");
+  src: url("../font/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../font/Flaticon.woff") format("woff"),
+       url("../font/Flaticon.ttf") format("truetype"),
+       url("../font/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../font/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, 
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, 
+[class*=" flaticon-"]:after {   
+	font-family: Flaticon;
+	font-style: normal;
+}
+
+.flaticon-toilet-1:before { content: "\f100"; }
+.flaticon-shirt:before { content: "\f101"; }
+.flaticon-truck:before { content: "\f102"; }
+.flaticon-laundry:before { content: "\f103"; }
+.flaticon-bucket:before { content: "\f104"; }
+.flaticon-trash:before { content: "\f105"; }
+.flaticon-lifesaver:before { content: "\f106"; }
+.flaticon-house-1:before { content: "\f107"; }
+.flaticon-ironing:before { content: "\f108"; }
+.flaticon-dishwashing:before { content: "\f109"; }
+.flaticon-spray-1:before { content: "\f10a"; }
+.flaticon-pot:before { content: "\f10b"; }
+.flaticon-washing-machine:before { content: "\f10c"; }
+.flaticon-baby-stroller:before { content: "\f10d"; }
+.flaticon-broom:before { content: "\f10e"; }
+.flaticon-fly:before { content: "\f10f"; }
+.flaticon-spider-1:before { content: "\f110"; }
+.flaticon-spider:before { content: "\f111"; }
+.flaticon-mouse:before { content: "\f112"; }
+.flaticon-cockroach:before { content: "\f113"; }
+.flaticon-ant:before { content: "\f114"; }
+.flaticon-car:before { content: "\f115"; }
+.flaticon-people:before { content: "\f116"; }
+.flaticon-dustpan:before { content: "\f117"; }
+.flaticon-mop:before { content: "\f118"; }
+.flaticon-plunger:before { content: "\f119"; }
+.flaticon-dust:before { content: "\f11a"; }
+.flaticon-spray:before { content: "\f11b"; }
+.flaticon-toilet:before { content: "\f11c"; }
+.flaticon-washing-plate:before { content: "\f11d"; }
+.flaticon-vacuum-cleaner:before { content: "\f11e"; }
+.flaticon-sweep:before { content: "\f11f"; }
+.flaticon-house:before { content: "\f120"; }

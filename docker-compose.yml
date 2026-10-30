@@ -1,0 +1,25 @@
+# Kućni Sjaj — statički sajt. Dokploy sam dodeljuje domen i TLS.
+# Ne dodavati Traefik labele; Dokploy ih ubacuje iz svog interfejsa.
+
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    # Nginx sluša port 80 u kontejneru. Dokploy domen vezati za servis web, port 80.
+    ports:
+      - "80"
+
+  # Budući Postgres ili API ide ovde, kao još jedan servis u istom fajlu.
+  # Ostaje zakomentarisano: sajt nema backend za formu, pa se baza ne pokreće.
+  # db:
+  #   image: postgres:16-alpine
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: kucnisjaj
+  #     POSTGRES_USER: kucnisjaj
+  #     POSTGRES_PASSWORD: zameniti
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+
+# volumes:
+#   pgdata:

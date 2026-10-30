@@ -1,0 +1,86 @@
+[
+  {
+    "bookingWidth": 330,
+    "brokenImages": [],
+    "clientWidth": 360,
+    "h1": 1,
+    "headerRight": 0,
+    "heroFits": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 360,
+    "sticky": "grid",
+    "width": 375
+  },
+  {
+    "bookingWidth": 345,
+    "brokenImages": [],
+    "clientWidth": 375,
+    "h1": 1,
+    "headerRight": 0,
+    "heroFits": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 375,
+    "sticky": "grid",
+    "width": 390
+  },
+  {
+    "bookingWidth": 385,
+    "brokenImages": [],
+    "clientWidth": 415,
+    "h1": 1,
+    "headerRight": 0,
+    "heroFits": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 415,
+    "sticky": "grid",
+    "width": 430
+  },
+  {
+    "bookingWidth": 693,
+    "brokenImages": [],
+    "clientWidth": 753,
+    "h1": 1,
+    "headerRight": 0,
+    "heroFits": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 753,
+    "sticky": "none",
+    "width": 768
+  },
+  {
+    "bookingWidth": 625,
+    "brokenImages": [],
+    "clientWidth": 1009,
+    "h1": 1,
+    "headerRight": 797,
+    "heroFits": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 1009,
+    "sticky": "none",
+    "width": 1024
+  },
+  {
+    "bookingWidth": 792,
+    "brokenImages": [],
+    "clientWidth": 1425,
+    "h1": 1,
+    "headerRight": 1313,
+    "heroFits": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 1425,
+    "sticky": "none",
+    "width": 1440
+  },
+  {
+    "bookingWidth": 792,
+    "brokenImages": [],
+    "clientWidth": 1905,
+    "h1": 1,
+    "headerRight": 1553,
+    "heroFits": true,
+    "horizontalOverflow": false,
+    "scrollWidth": 1905,
+    "sticky": "none",
+    "width": 1920
+  }
+]
