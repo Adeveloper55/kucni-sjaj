@@ -6,8 +6,21 @@
   const scenes = [...root.querySelectorAll('.comparison-scene')];
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const timings = { before: Number(root.dataset.beforeDelay), revealing: Number(root.dataset.revealDuration), after: Number(root.dataset.cleanHold), switching: 650 };
-  let index = 0, phase = 'before', elapsed = 0, start = 0, frame;
+  let index = 0, phase = 'before', elapsed = 0, start = 0, frame, arming = false;
   let motionPaused = motion.matches, hidden = document.hidden, ready = false, outside = false;
+  const narrow = window.matchMedia('(max-width: 991px)');
+  function loadImage(image) {
+    if (!image.getAttribute('src') && image.dataset.src) {
+      image.src = narrow.matches && image.dataset.srcSmall ? image.dataset.srcSmall : image.dataset.src;
+    }
+    if (image.decode) return image.decode().catch(() => {});
+    if (image.complete && image.naturalWidth) return Promise.resolve();
+    return new Promise(resolve => {
+      image.addEventListener('load', () => resolve(), { once: true });
+      image.addEventListener('error', () => resolve(), { once: true });
+    });
+  }
+  const ensureScene = sceneIndex => Promise.all([...scenes[sceneIndex].querySelectorAll('img')].map(loadImage));
 
   function render() {
     root.dataset.pair = scenes[index].dataset.scene;
@@ -22,9 +35,19 @@
     if (phase === 'before') phase = 'revealing';
     else if (phase === 'revealing') { phase = 'after'; paint(1); }
     else if (phase === 'after') {
-      index = (index + 1) % scenes.length;
-      phase = 'switching';
-      paint(0);
+      if (arming) return;
+      const next = (index + 1) % scenes.length;
+      arming = true;
+      ensureScene(next).then(() => {
+        arming = false;
+        if (phase !== 'after') return;
+        index = next;
+        phase = 'switching';
+        paint(0);
+        elapsed = 0;
+        render();
+      });
+      return;
     } else phase = 'before';
     elapsed = 0;
     render();
@@ -55,8 +78,10 @@
     schedule();
   }, { threshold: 0 }).observe(root);
   // Start the two-second hold only when all four frames can be displayed without a flash.
-  Promise.all([...root.querySelectorAll('img')].map(image => image.decode())).then(() => {
-    ready = true; schedule();
+  ensureScene(0).then(() => {
+    ready = true;
+    schedule();
+    ensureScene((index + 1) % scenes.length);
   }).catch(() => {
     // The original first photo remains visible; never reveal an unloaded image.
     root.dataset.phase = 'unavailable';

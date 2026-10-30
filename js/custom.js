@@ -31,7 +31,9 @@
   close.addEventListener('click', () => setMenu(false));
   overlay.addEventListener('click', () => setMenu(false));
   menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    if (breakpoint.matches) setMenu(false, false);
+    if (!breakpoint.matches) return;
+    // Close after the tap, so the link is not pulled away before the browser follows it.
+    window.setTimeout(() => setMenu(false, false), 0);
   }));
   document.addEventListener('keydown', event => {
     if (!breakpoint.matches || !menu.classList.contains('show')) return;

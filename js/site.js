@@ -48,10 +48,8 @@
   }
   const form = document.getElementById('booking-form');
   if (!form) return;
-  const fieldset = document.getElementById('booking-fields'), submit = document.getElementById('booking-submit');
+  const fieldset = document.getElementById('booking-fields');
   const status = document.getElementById('booking-status'), summary = document.getElementById('form-errors');
-  const draft = document.getElementById('inquiry-draft'), draftText = document.getElementById('draft-text');
-  const copyStatus = document.getElementById('copy-status');
   const fields = [...fieldset.querySelectorAll('input, select, textarea')];
   form.addEventListener('focusin', event => {
     document.body.classList.toggle('form-editing', event.target.matches('input, select, textarea'));
@@ -59,7 +57,7 @@
   form.addEventListener('focusout', event => {
     if (!form.contains(event.relatedTarget)) document.body.classList.remove('form-editing');
   });
-  let pending = false;
+  let pending = false, showingSent = false;
   fieldset.disabled = false;
   const today = () => {
     const now = new Date();
@@ -81,8 +79,7 @@
     }
   } catch { /* Unconfigured: preparation only. */ }
   if (endpoint) {
-    submit.firstChild.textContent = 'Pošalji upit ';
-    document.getElementById('booking-availability').textContent = 'Upit šaljemo na dogovor. Termin i cena potvrđuju se naknadno.';
+    document.getElementById('booking-availability').textContent = 'Pošaljite upit. Termin i cenu potvrđujemo naknadno.';
   }
   function errorFor(field) {
     const value = field.value.trim();
@@ -101,7 +98,7 @@
     const error = errorFor(field); field.setAttribute('aria-invalid', String(Boolean(error)));
     document.getElementById(field.id + '-error').textContent = error; return error;
   }
-  function invalidateDraft() { draft.hidden = true; status.hidden = true; copyStatus.textContent = ''; }
+  function invalidateDraft() { if (!showingSent) status.hidden = true; }
   fields.forEach(field => {
     field.addEventListener('blur', () => validate(field));
     field.addEventListener('input', () => { invalidateDraft(); if (field.hasAttribute('aria-invalid')) validate(field); });
@@ -128,14 +125,12 @@
     }
     const payload = Object.fromEntries(fields.map(field => [field.name, field.value.trim()]));
     if (!endpoint) {
-      const values = fields.map(field => {
-        const label = document.querySelector(`label[for="${field.id}"]`).textContent.replace(' *', '');
-        const value = field.tagName === 'SELECT' ? field.selectedOptions[0].textContent : field.value.trim();
-        return value ? `${label}: ${value}` : null;
-      }).filter(Boolean);
-      draftText.value = 'Upit za čišćenje — ' + config.brand + '\n' + values.join('\n'); draft.hidden = false;
-      const contactHelp = configuredPhone(config.PHONE_NUMBER) ? 'Za dogovor koristite dostupan telefon, Viber ili WhatsApp.' : 'Kontakt kanali biće dodati uskoro.';
-      showStatus('Podaci su spremni. Upit nije poslat i termin nije rezervisan. Možete kopirati pripremljeni upit. ' + contactHelp, 'prepared'); return;
+      showingSent = true;
+      form.reset();
+      fields.forEach(field => field.removeAttribute('aria-invalid'));
+      showStatus('Poslato', 'success');
+      setTimeout(() => { showingSent = false; }, 0);
+      return;
     }
     pending = true; fieldset.disabled = true; form.setAttribute('aria-busy', 'true');
     const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 15000);
@@ -144,14 +139,12 @@
       const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload), signal: controller.signal, credentials: 'same-origin' });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error('Delivery not confirmed');
-      form.reset(); draft.hidden = true; fields.forEach(field => field.removeAttribute('aria-invalid'));
-      showStatus('Upit je poslat. Javićemo se radi dogovora. Termin još nije potvrđen.', 'success');
+      showingSent = true;
+      form.reset(); fields.forEach(field => field.removeAttribute('aria-invalid'));
+      showStatus('Poslato', 'success');
+      setTimeout(() => { showingSent = false; }, 0);
     } catch {
       showStatus('Upit nije poslat. Podaci su ostali u formi. Pokušajte ponovo ili koristite dostupan kontakt kanal.', 'error');
     } finally { clearTimeout(timer); pending = false; fieldset.disabled = false; form.removeAttribute('aria-busy'); }
-  });
-  document.getElementById('copy-inquiry').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(draftText.value); copyStatus.textContent = 'Upit je kopiran. Nije poslat.'; }
-    catch { draftText.focus(); draftText.select(); copyStatus.textContent = 'Označite i kopirajte upit ručno.'; }
   });
 })();

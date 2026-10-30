@@ -66,21 +66,30 @@
 
     document.addEventListener('visibilitychange', () => { hidden = document.hidden; schedule(); });
     motion.addEventListener('change', event => { motionPaused = event.matches; schedule(); });
+    let primed = false;
+    function prime() {
+      if (primed) return;
+      primed = true;
+      Promise.all([...root.querySelectorAll('img')].map(image => {
+        if (image.complete && image.naturalWidth) return Promise.resolve();
+        const done = image.decode ? image.decode().catch(() => {}) : Promise.resolve();
+        return done.then(() => {
+          if (image.complete) return;
+          return new Promise(resolve => {
+            image.addEventListener('load', resolve, { once: true });
+            image.addEventListener('error', resolve, { once: true });
+          });
+        });
+      })).then(() => {
+        ready = true;
+        schedule();
+      });
+    }
     new IntersectionObserver(entries => {
       outside = !entries[0].isIntersecting;
+      if (!outside) prime();
       schedule();
-    }, { threshold: 0.2 }).observe(root);
-
-    Promise.all([...root.querySelectorAll('img')].map(image => {
-      if (image.complete && image.naturalWidth) return Promise.resolve();
-      return image.decode().catch(() => new Promise(resolve => {
-        image.addEventListener('load', resolve, { once: true });
-        image.addEventListener('error', resolve, { once: true });
-      }));
-    })).then(() => {
-      ready = true;
-      schedule();
-    });
+    }, { rootMargin: '240px 0px', threshold: 0.01 }).observe(root);
     render();
   });
 })();

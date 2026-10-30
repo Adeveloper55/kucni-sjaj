@@ -1,6 +1,6 @@
 /* Čisto Dom, faza 1. Dopune originalnog index-5; vendor stilovi ostaju sačuvani. */
 :root { --dom-blue: #365b6d; --dom-navy: #173344; --dom-yellow: #d2b57a; --dom-gold: #d2b57a; --dom-text: #293c46; --dom-muted: #596970; --dom-paper: #fcfbf8; --dom-line: #dce3e3; --dom-blue-overlay: rgba(16, 43, 60, .78); --dom-gold-overlay: rgba(157, 116, 42, .58); }
-html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; -webkit-tap-highlight-color: transparent; }
 body { font-family: Roboto, Arial, sans-serif; color: var(--dom-text); }
 .home-page p { text-align: left; }
 .home-page .text-center > p, .home-page .services-style-2 p, .home-page .services-style-3 p { text-align: center; }
@@ -38,14 +38,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .site-header .header-booking:hover { background: var(--dom-yellow); color: var(--dom-navy); }
 .header-style-6 .header-nav.xmenu .nav > li > a { font-size: 14px; padding: 18px 12px; text-transform: none; white-space: nowrap; }
 .header-nav.xmenu { flex-grow: 0; }
-.site-header .sticky-header.is-fixed .main-bar { background: var(--dom-navy); padding: 6px 0; box-shadow: 0 4px 20px #081d5826; }
+.site-header .sticky-header.is-fixed .main-bar { background: var(--dom-navy); padding: 6px 0; box-shadow: 0 4px 20px #081d5826; animation: header-settle .35s ease; }
+@keyframes header-settle { from { transform: translateY(-100%); } to { transform: translateY(0); } }
 .mobile-menu-heading, .menu-booking { display: none; }
 .hero-section { position: relative; min-height: 880px; background: var(--dom-blue); isolation: isolate; }
 .hero-section .main-slider { min-height: 880px; }
 .hero-visual { position: absolute; inset: 0; overflow: hidden; background: #e8e2d8; }
 .comparison-scene { position: absolute; inset: 0; opacity: 0; transition: opacity 650ms ease; --clean-progress: 0; }
 .comparison-scene.is-active { opacity: 1; }
-.comparison-scene > img, .comparison-clean img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center; }
+.comparison-scene picture, .comparison-clean picture { display: contents; }
+.comparison-scene > img, .comparison-scene img.comparison-before, .comparison-clean img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center; }
 .comparison-clean { position: absolute; inset: 0; clip-path: inset(0 0 0 calc((1 - var(--clean-progress)) * 100%)); }
 .comparison-sweep { position: absolute; top: 0; bottom: 0; left: calc((1 - var(--clean-progress)) * 100%); width: 3px; background: #fff; box-shadow: 0 0 22px 7px #ffffff80; opacity: 0; }
 .home-page:not(.inner-page) .site-header .top-bar a { background: white; padding: 5px 10px; margin-top: -5px; border-radius: 4px; }
@@ -55,7 +57,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero-shapes.clean-shape-bx::after { background: var(--dom-blue-overlay); }
 .hero-shapes.clean-shape-bx::before { background: var(--dom-gold-overlay); }
 @media (max-width: 767px) {
-  .comparison-scene > img, .comparison-clean img { object-position: 65% center; }
+  .comparison-scene > img, .comparison-scene img.comparison-before, .comparison-clean img { object-position: 65% center; }
 }
 .hero-copy { position: absolute; z-index: 40; top: 230px; left: max(28px, calc((100% - 1280px) / 2)); width: 650px; padding: 46px 45px 42px; background: rgba(19, 43, 57, .62); -webkit-backdrop-filter: blur(20px) saturate(115%); backdrop-filter: blur(20px) saturate(115%); border: 1px solid rgba(255, 255, 255, .23); box-shadow: 0 22px 70px #071b302b, inset 0 1px 0 #ffffff18; border-radius: 6px 6px 72px 6px; }
 .hero-eyebrow { font-size: 14px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; color: var(--dom-blue); margin-bottom: 14px; }
@@ -173,7 +175,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .maintenance-offer { padding: 24px; gap: 22px; }
   .maintenance-offer .site-button { width: 100%; }
 }
-.inquiry-cta { background: var(--dom-navy) url('../images/background/bg8.jpg') center / cover; }
+.inquiry-cta { background: var(--dom-navy) url('../images/background/cta-enterijer.webp') center / cover; }
 .inquiry-cta > .container-fluid { position: relative; z-index: 1; }
 .inquiry-cta h2 { color: white; font-size: clamp(30px, 3vw, 42px); line-height: 1.2; margin-bottom: 18px; }
 .inquiry-cta p { max-width: 650px; font-size: 18px; line-height: 1.6; }
@@ -276,15 +278,51 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .site-header .logo-header { min-width: 0; width: auto; }
   .site-header .extra-nav { display: none; }
   .site-header .main-bar { padding: 12px 0; }
-  .site-header .navicon { margin: 0; background: white; padding: 12px; width: 48px; height: 48px; border-radius: 4px; }
+  .site-header .navicon { margin: 0; background: white; padding: 12px; width: 48px; height: 48px; border-radius: 4px; -webkit-tap-highlight-color: transparent; }
   .site-header .navicon span { background: var(--dom-navy); }
-  .site-header .header-nav.xmenu { padding: 30px 24px; width: min(340px, 90vw); }
-  .site-header .header-nav.xmenu:not(.show) { visibility: hidden; }
-  .site-header .header-nav.xmenu.show { visibility: visible; }
-  .header-style-6 .header-nav.xmenu .nav > li > a { font-size: 17px; padding: 13px 12px; border: 0; border-radius: 4px; color: var(--dom-navy); }
-  .site-header .header-nav.xmenu .nav > li > a:hover, .site-header .header-nav.xmenu .nav > li > a.active { background: #edf2f1; }
+  .site-header .navicon.open { visibility: hidden; }
+  .site-header .header-nav.xmenu {
+    left: 0;
+    padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px));
+    width: min(100%, 420px);
+    height: 100dvh;
+    transform: translate3d(-105%, 0, 0);
+    visibility: hidden;
+    transition: transform .32s ease, visibility 0s linear .32s;
+    -webkit-overflow-scrolling: touch;
+  }
+  .site-header .header-nav.xmenu.show {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    transition: transform .32s ease, visibility 0s;
+  }
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a,
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a:link,
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a:visited,
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a:hover,
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a:active,
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a:focus,
+  .header-style-6.site-header .header-nav.xmenu .nav > li:hover > a {
+    font-size: 17px;
+    padding: 14px 12px;
+    border: 0;
+    border-radius: 4px;
+    color: var(--dom-navy);
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a:hover,
+  .header-style-6.site-header .header-nav.xmenu .nav > li:hover > a,
+  .header-style-6.site-header .header-nav.xmenu .nav > li > a.active {
+    background: #f6f1e6;
+    color: var(--dom-navy);
+  }
+  .site-header a:focus, .site-header button:focus { outline: none; }
+  .site-header a:focus-visible, .site-header button:focus-visible { outline: 3px solid #927139; outline-offset: 3px; }
   .mobile-menu-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; font-size: 24px; color: var(--dom-navy); font-weight: 600; }
-  .close-menu { position: static; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: #edf2f1; color: var(--dom-navy); }
+  .close-menu { position: static; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: #f6f1e6; color: var(--dom-navy); -webkit-tap-highlight-color: transparent; }
   .site-header .menu-booking { display: flex; margin-top: 24px; color: white; }
   .hero-section, .hero-section .main-slider { min-height: 820px; }
   .hero-copy { top: 190px; left: 30px; width: min(610px, calc(100% - 60px)); padding: 40px; }
@@ -421,3 +459,75 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .moment-card span { color: var(--dom-muted); font-size: 15px; line-height: 1.6; }
 .about-moments { margin-top: 18px; }
 @media (max-width: 991px) { .home-visit-photo { height: 420px; } .moment-grid { margin-top: 36px; } }
+
+/* Mobilni meni: šablon drži overflow-y: scroll i 20px bočni padding na listi, pa pored kratkih stavki ostanu tamne trake. */
+@media (max-width: 991px) {
+  .site-header .header-nav.xmenu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .site-header .header-nav.xmenu::-webkit-scrollbar { display: none; width: 0; height: 0; }
+  .site-header .header-nav.xmenu > .nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: visible;
+  }
+  .site-header .header-nav.xmenu > .nav::before,
+  .site-header .header-nav.xmenu > .nav::after,
+  .site-header .header-nav.xmenu .nav > li::before,
+  .site-header .header-nav.xmenu .nav > li::after,
+  .site-header .header-nav.xmenu .nav > li > a::before,
+  .site-header .header-nav.xmenu .nav > li > a::after { content: none; display: none; }
+  .site-header .header-nav.xmenu .nav > li::marker { content: none; }
+  .site-header .header-nav.xmenu .nav > li { overflow: visible; width: 100%; list-style: none; }
+  .site-header .header-nav.xmenu .nav > li > a {
+    display: block;
+    width: 100%;
+    overflow: visible;
+    border: 0;
+    box-shadow: none;
+    background-image: none;
+    text-shadow: none;
+    white-space: normal;
+  }
+}
+
+/* Blagi uspon teksta, slika i kartica. Klase dodaje js/rise-in.js; bez njih sadržaj ostaje vidljiv. Kontakt se ne krije. */
+@media (prefers-reduced-motion: no-preference) {
+  html.rise-ready body:not([data-page="kontakt"]) .rise-item { opacity: 0; transform: translateY(32px); }
+  html.rise-ready body:not([data-page="kontakt"]) .rise-item.from-top { transform: translateY(-28px); }
+  html.rise-ready body:not([data-page="kontakt"]) .rise-item.rise-fade { transform: none; }
+  html.rise-ready body:not([data-page="kontakt"]) .rise-item.is-in { opacity: 1; transform: none; transition: opacity .7s ease, transform .7s ease; transition-delay: var(--rise-delay, 0ms); }
+  html.rise-ready body:not([data-page="kontakt"]) .rise-item.rise-fade.is-in { transition: opacity .7s ease var(--rise-delay, 0ms); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.rise-ready .rise-item { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+}
+body[data-page="kontakt"] .rise-item { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+
+/* Hero tekst ulazi odmah, bez čekanja skripte. Wipe pre/posle ostaje. */
+@keyframes hero-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy .hero-eyebrow { animation: hero-rise .5s ease both; }
+  .hero-copy h1 { animation: hero-rise .55s ease .05s both; }
+  .hero-copy .hero-description { animation: hero-rise .55s ease .1s both; }
+  .hero-copy .cta-actions { animation: hero-rise .55s ease .16s both; }
+}
+
+/* Zamućenje stakla na telefonu precrtava svaki kadar animacije i koci skrol. Izgled ostaje taman, animacije ostaju. */
+@media (max-width: 991px) {
+  .hero-copy,
+  .home-page .premium-services .services-style-2,
+  .confirmed-pricing .pricingtable-inner,
+  .extra-prices > div,
+  .premium-services .service-card::after {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .hero-copy { background: rgba(19, 43, 57, .92); }
+  .hero-visual { contain: paint; }
+  .home-page main > section:not(.hero-section) { content-visibility: auto; contain-intrinsic-size: auto 640px; }
+}
