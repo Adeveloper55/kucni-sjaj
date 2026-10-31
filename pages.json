@@ -184,6 +184,22 @@
     "imageAlt": "Peglanje veša"
   },
   {
+    "key": "dubinsko-pranje-namestaja",
+    "file": "dubinsko-pranje-namestaja.html",
+    "label": "Dubinsko pranje nameštaja",
+    "nav": false,
+    "landing": true,
+    "parent": "usluge",
+    "title": "Dubinsko pranje nameštaja Beograd | Kućni Sjaj",
+    "description": "Dubinsko pranje nameštaja u Beogradu — garniture, dušeci, itison. Od 1.000 RSD po komadu. Pogledajte ceo cenovnik.",
+    "intro": "Garnitura, dušek ili itison — tkanina skuplja prašinu i mirise koje usisivač ne skine. Dubinski operemo nameštaj po komadu, po cenovniku na stranici.",
+    "priceNote": "Cene po komadu: od 1.000 RSD.",
+    "image": "images/banners/dnevna.webp",
+    "imageWidth": 1152,
+    "imageHeight": 864,
+    "imageAlt": "Nameštena dnevna soba spremna za dubinsko pranje"
+  },
+  {
     "key": "pranje-roletni",
     "file": "pranje-roletni.html",
     "label": "Pranje roletni",

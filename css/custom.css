@@ -390,6 +390,67 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .extra-service-card > div { display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 20px; }
 .extra-service-card h3 { margin: 0; color: #f4f9fc; font-size: 18px; font-weight: 600; line-height: 1.35; }
 .extra-price { margin: 0; color: #f1e2bd; font-size: 17px; font-weight: 600; }
+.extra-price-link { color: #e0c68f; font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.extra-price-link:hover, .extra-price-link:focus-visible { color: #f3e7c8; }
+
+/* Dubinsko pranje nameštaja — itemized price list */
+.furniture-prices {
+  margin: 48px 0 8px;
+  padding: 36px 32px 28px;
+  border: 1px solid #c8e5ff2e;
+  border-radius: 18px;
+  background: linear-gradient(155deg, #77c2ea14, #ffffff00 48%), #153448;
+  box-shadow: 0 18px 42px #03172733;
+}
+.furniture-prices-head { margin: 0 0 28px; max-width: 640px; }
+.furniture-prices-head .section-kicker { color: #e0c68f; }
+.furniture-prices-head h2 { margin: 0 0 10px; color: #fff; font-size: clamp(26px, 2.4vw, 32px); line-height: 1.25; }
+.furniture-prices-head p { margin: 0; color: #cedee9; font-size: 16px; line-height: 1.65; }
+.furniture-price-group { margin: 0 0 28px; }
+.furniture-price-group:last-child { margin-bottom: 0; }
+.furniture-price-group h3 {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d5eaff29;
+  color: #e0c68f;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.furniture-price-rows { margin: 0; }
+.furniture-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+  padding: 11px 0;
+  border-bottom: 1px dotted #c8e5ff33;
+}
+.furniture-price-row:last-child { border-bottom: 0; }
+.furniture-price-row dt {
+  flex: 1 1 auto;
+  margin: 0;
+  color: #eff6fb;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.furniture-price-row dd {
+  flex: 0 0 auto;
+  margin: 0;
+  color: #f1e2bd;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .furniture-prices { padding: 28px 18px 22px; margin-top: 36px; }
+  .furniture-price-row { flex-wrap: wrap; gap: 4px 12px; padding: 12px 0; }
+  .furniture-price-row dt { flex-basis: 100%; font-size: 16px; }
+  .furniture-price-row dd { font-size: 16px; }
+}
 .business-pricing { background: #102938; }
 .business-pricing .section-head h2 { color: #fff; }
 .business-pricing .section-head .section-kicker { color: #e0c68f; }
