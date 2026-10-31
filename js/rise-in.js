@@ -17,7 +17,7 @@
 
   function leaveAlone(node) {
     if (node.closest('.hero-copy, .hero-visual, .comparison-scene, .comparison-clean')) return true;
-    if (node.matches('img, .comparison-before, .comparison-sweep') && node.closest('.service-compare')) return true;
+    if (node.matches('img, .comparison-before, .comparison-sweep, .wipe-hand') && node.closest('.service-compare')) return true;
     if (node.closest('[hidden]')) return true;
     return false;
   }

@@ -52,9 +52,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .comparison-sweep { position: absolute; top: 0; bottom: 0; left: calc((1 - var(--clean-progress)) * 100%); width: 3px; background: #fff; box-shadow: 0 0 22px 7px #ffffff80; opacity: 0; }
 .home-page:not(.inner-page) .site-header .top-bar a { background: white; padding: 5px 10px; margin-top: -5px; border-radius: 4px; }
 .hero-visual[data-phase="revealing"] .is-active .comparison-sweep { opacity: .8; }
-.wipe-hand { position: absolute; z-index: 30; left: 62%; top: 46%; width: 176px; height: 176px; pointer-events: none; opacity: 0; filter: drop-shadow(0 8px 16px #07141e66); transform: translate(-50%, -46%); }
+.wipe-hand { position: absolute; z-index: 30; pointer-events: none; opacity: 0; filter: drop-shadow(0 8px 16px #07141e66); }
 .wipe-hand-stage, .wipe-hand-stage svg { width: 100%; height: 100%; display: block; }
-.wipe-hand.is-wiping { animation: wipe-swipe var(--wipe-ms, 2000ms) cubic-bezier(.42, 0, .22, 1) both; }
+.hero-visual .wipe-hand { left: 62%; top: 46%; width: 176px; height: 176px; transform: translate(-50%, -46%); }
+.hero-visual .wipe-hand.is-wiping { animation: wipe-swipe var(--wipe-ms, 2000ms) cubic-bezier(.42, 0, .22, 1) both; }
 @keyframes wipe-swipe {
     0% { opacity: 0; transform: translate(-50%, -46%) translateX(-42px) rotate(-7deg); }
   16% { opacity: 1; transform: translate(-50%, -46%) translateX(-24px) rotate(-3deg); }
@@ -63,7 +64,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   100% { opacity: 0; transform: translate(-50%, -46%) translateX(18px) rotate(2deg); }
 }
 @media (max-width: 767px) {
-  .wipe-hand { left: auto; right: 5%; top: auto; bottom: 7%; width: 118px; height: 118px; transform: none; }
+  .hero-visual .wipe-hand { left: auto; right: 5%; top: auto; bottom: 7%; width: 118px; height: 118px; transform: none; }
   @keyframes wipe-swipe {
     0% { opacity: 0; transform: translateX(-18px) rotate(-8deg); }
     14% { opacity: 1; transform: translateX(-10px) rotate(-4deg); }
@@ -274,7 +275,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .legal-page h1 { font-size: clamp(32px, 4vw, 48px); color: var(--dom-navy); margin: 16px 0 30px; }
 .legal-page main p { font-size: 18px; line-height: 1.8; }
 .legal-page .section-kicker { margin-top: 30px; }
-.page-banner { position: relative; padding: 168px 0 72px; background: radial-gradient(ellipse at 88% 12%, #d2b57a2e, transparent 42%), radial-gradient(ellipse at 6% 100%, #365b6d55, transparent 48%), #173344; color: white; }
+.page-banner { position: relative; padding: 248px 0 88px; background: radial-gradient(ellipse at 88% 12%, #d2b57a2e, transparent 42%), radial-gradient(ellipse at 6% 100%, #365b6d55, transparent 48%), #173344; color: white; }
 .page-banner-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, 480px); gap: 36px 56px; align-items: center; }
 .page-banner-copy { min-width: 0; }
 .page-banner h1 { color: white; font-size: clamp(36px, 4vw, 56px); line-height: 1.12; margin: 14px 0 16px; letter-spacing: -.6px; }
@@ -332,7 +333,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .legal-content a { color: #285a75; text-decoration: underline; text-underline-offset: 3px; }
 .legal-updated { color: var(--dom-muted); font-size: 15px; margin-bottom: 8px; }
 @media (max-width: 991px) {
-  .page-banner { padding-top: 148px; padding-bottom: 40px; }
+  .page-banner { padding-top: 208px; padding-bottom: 48px; }
   .page-banner-grid, .banner-flip .page-banner-grid, .banner-story .page-banner-grid, .banner-band .page-banner-grid { grid-template-columns: 1fr; gap: 22px; }
   .banner-flip .page-banner-photo { order: 2; }
   .page-banner-photo, .banner-flip .page-banner-photo { max-width: 640px; margin: 0; }
@@ -341,7 +342,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .banner-facts, .banner-steps { grid-template-columns: 1fr; }
 }
 @media (max-width: 767px) {
-  .page-banner { padding-top: 132px; padding-bottom: 32px; }
+  .page-banner { padding-top: 184px; padding-bottom: 40px; }
   .page-banner p, .banner-questions p { font-size: 16px; }
   .page-banner-frame, .banner-story .page-banner-frame, .banner-band .page-banner-frame { aspect-ratio: 16 / 10; }
   .banner-facts strong { font-size: 20px; }
@@ -512,8 +513,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .premium-services .service-card .service-photo { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-radius: 23px 23px 0 0; background: #163246; }
 .service-compare { --clean-progress: 0; }
 .service-compare .comparison-before, .service-compare .comparison-clean img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center; }
+.service-compare .wipe-hand { left: 58%; top: 52%; width: 92px; height: 92px; z-index: 4; transform: translate(-50%, -50%); }
+.service-compare .wipe-hand.is-wiping { animation: card-wipe-swipe var(--wipe-ms, 1200ms) cubic-bezier(.42, 0, .22, 1) both; }
+@keyframes card-wipe-swipe {
+  0% { opacity: 0; transform: translate(-50%, -50%) translateX(-28px) rotate(-8deg); }
+  14% { opacity: 1; transform: translate(-50%, -50%) translateX(-16px) rotate(-3deg); }
+  48% { opacity: 1; transform: translate(-50%, -50%) translateX(22px) rotate(5deg); }
+  78% { opacity: 1; transform: translate(-50%, -50%) translateX(-8px) rotate(-2deg); }
+  100% { opacity: 0; transform: translate(-50%, -50%) translateX(14px) rotate(2deg); }
+}
 .service-compare[data-phase="revealing"] .comparison-sweep { opacity: .85; }
-@media (prefers-reduced-motion: reduce) { .service-compare { --clean-progress: 1; } .service-compare .comparison-sweep { display: none; } }
+@media (max-width: 767px) { .service-compare .wipe-hand { width: 78px; height: 78px; } }
+@media (prefers-reduced-motion: reduce) { .service-compare { --clean-progress: 1; } .service-compare .comparison-sweep, .service-compare .wipe-hand { display: none; } }
 .premium-services .service-card .dlab-content { flex: 1; height: auto; align-items: flex-start; padding: 24px 28px 4px; }
 .premium-services .service-card::after { top: 14px; right: 14px; z-index: 2; padding: 5px 10px; border-radius: 999px; background: #102938b8; color: #f3e7c8; backdrop-filter: blur(8px); }
 .home-page .premium-services .service-card .dlab-tilte { min-height: 0; margin-bottom: 12px; }
