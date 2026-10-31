@@ -42,8 +42,15 @@
     const pagePath = document.body.dataset.page === 'pocetna' ? './' : location.pathname.split('/').pop();
     const pageURL = new URL(pagePath, productionURL).href;
     const canonical = document.createElement('link'); canonical.rel = 'canonical'; canonical.href = pageURL; document.head.append(canonical);
-    for (const [property, value] of [['og:url', pageURL], ['og:image', new URL('images/main-slider/slide10.webp', productionURL).href]]) {
+    const shareImage = new URL('images/og-share.jpg', productionURL).href;
+    for (const [property, value] of [['og:url', pageURL], ['og:image', shareImage], ['og:image:width', '1200'], ['og:image:height', '630']]) {
       const meta = document.createElement('meta'); meta.setAttribute('property', property); meta.content = value; document.head.append(meta);
+    }
+    if (!document.querySelector('meta[name="twitter:card"]')) {
+      const card = document.createElement('meta'); card.name = 'twitter:card'; card.content = 'summary_large_image'; document.head.append(card);
+    }
+    if (!document.querySelector('meta[name="twitter:image"]')) {
+      const tw = document.createElement('meta'); tw.name = 'twitter:image'; tw.content = shareImage; document.head.append(tw);
     }
   }
   const form = document.getElementById('booking-form');

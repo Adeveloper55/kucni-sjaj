@@ -25,11 +25,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .brand-mark strong { display: block; font-size: 29px; line-height: 1.1; letter-spacing: -.8px; }
 .brand-mark small { display: block; font-size: 11px; line-height: 1.5; letter-spacing: .3px; margin-top: 4px; }
 .brand-mark:hover { color: white; }
-.site-header .logo-header { width: auto; min-width: 205px; height: auto; padding: 0; margin-right: auto; display: flex; align-items: center; }
-.site-header .logo-header .brand-mark { display: inline-flex; color: white; padding: 0; }
+.site-header .logo-header,
+.header-style-6 .logo-header,
+.site-header.header-style-6 .logo-header {
+  width: auto;
+  min-width: 205px;
+  height: auto !important;
+  max-height: none;
+  padding: 0;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+.site-header .logo-header .brand-mark { display: inline-flex; color: white; padding: 0; overflow: visible; }
 .site-header .logo-header .brand-mark > span { color: inherit; letter-spacing: normal; }
 .site-header .top-bar { display: none !important; }
-.site-header .inner-bar { display: flex; gap: 20px; min-height: 78px; }
+.site-header .inner-bar { display: flex; gap: 20px; min-height: 136px; align-items: center; overflow: visible; }
 .site-header .inner-bar::before, .site-header .inner-bar::after { content: none; }
 .site-header .extra-nav { padding: 0; margin: 0; height: auto; display: flex; flex-shrink: 0; }
 .site-header .header-booking { background: var(--dom-navy); color: white; padding: 16px 18px; font-size: 14px; }
@@ -213,7 +225,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .extra-prices > div { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; padding: 24px; border: 1px solid #c8e5ff2e; border-radius: 12px; background: linear-gradient(135deg, #78aed715, #ffffff00), #38678952; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
 .extra-prices dt { font-size: 17px; font-weight: 500; line-height: 1.6; color: #eff6fb; }
 .extra-prices dd { font-size: 17px; font-weight: 600; line-height: 1.6; margin: 0; color: #f1e2bd; white-space: nowrap; }
+.extra-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0 0 32px; }
+.extra-service-card { overflow: hidden; border: 1px solid #c8e5ff2e; border-radius: 16px; background: linear-gradient(160deg, #78aed718, #ffffff00 48%), #2d55706e; box-shadow: 0 16px 36px #03172733; }
+.extra-service-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.extra-service-card > div { display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 20px; }
+.extra-service-card h3 { margin: 0; color: #f4f9fc; font-size: 18px; font-weight: 600; line-height: 1.35; }
+.extra-price { margin: 0; color: #f1e2bd; font-size: 17px; font-weight: 600; }
+.business-pricing { background: #102938; }
+.business-pricing .section-head h2 { color: #fff; }
+.business-pricing .section-head .section-kicker { color: #e0c68f; }
+.business-pricing .section-head.style1 p:not(.section-kicker) { color: #cedee9; }
+.business-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.business-service-card { overflow: hidden; border: 1px solid #c8e5ff2e; border-radius: 18px; background: linear-gradient(155deg, #77c2ea18, #ffffff00 50%), #1c4058a6; box-shadow: 0 18px 40px #03172740; }
+.business-service-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.business-service-body { display: flex; flex-direction: column; gap: 10px; padding: 22px 20px 24px; }
+.business-service-body h3 { margin: 0; color: #f5f9fc; font-size: 22px; font-weight: 600; }
+.business-service-body p { margin: 0; color: #d5e3ea; font-size: 15px; line-height: 1.55; }
+.business-service-body .extra-price { margin-top: 4px; }
+.business-service-body .site-button { align-self: flex-start; margin-top: 8px; background: var(--dom-gold); color: #132d40; }
 .pricing-extras > .container-fluid > .site-button { background: var(--dom-gold); color: #132d40; border-radius: 8px; }
+@media (max-width: 991px) {
+  .extra-service-grid { grid-template-columns: 1fr 1fr; }
+  .business-service-grid { grid-template-columns: 1fr; }
+}
 .maintenance-offer { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding: 36px; border: 1px solid #c8e5ff38; border-left: 4px solid var(--dom-gold); border-radius: 16px; background: linear-gradient(125deg, #396783ee, #193d54f5); box-shadow: 0 14px 42px #1733441a; }
 .maintenance-offer > div { max-width: 740px; }
 .home-page .maintenance-offer h2 { color: #fff; font-size: 30px; line-height: 1.25; }
@@ -231,6 +265,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .extra-prices { grid-template-columns: 1fr; }
   .extra-prices > div { flex-wrap: wrap; gap: 6px 14px; padding: 20px; }
   .extra-prices dt { flex-basis: 100%; }
+  .extra-service-grid { grid-template-columns: 1fr; gap: 14px; }
+  .extra-service-card h3 { font-size: 17px; }
+  .business-service-grid { grid-template-columns: 1fr; }
+  .business-service-body h3 { font-size: 20px; }
   .maintenance-offer { padding: 24px; gap: 22px; }
   .maintenance-offer .site-button { width: 100%; }
 }
@@ -391,8 +429,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 991px) {
   html { scroll-padding-top: 90px; }
   .site-header .top-bar { display: none; }
-  .site-header .inner-bar { min-height: 84px; justify-content: space-between; }
-  .site-header .logo-header { min-width: 0; width: auto; }
+  .site-header .inner-bar { min-height: 134px; justify-content: space-between; }
+  .site-header .logo-header,
+  .header-style-6 .logo-header,
+  .site-header.header-style-6 .logo-header { min-width: 0; width: auto; height: auto !important; overflow: visible; }
   .site-header .extra-nav { display: none; }
   .site-header .main-bar { padding: 12px 0; }
   .site-header .navicon { margin: 0; background: white; padding: 12px; width: 48px; height: 48px; border-radius: 4px; -webkit-tap-highlight-color: transparent; }
@@ -456,10 +496,51 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   .site-header a:focus, .site-header button:focus { outline: none; }
   .site-header a:focus-visible, .site-header button:focus-visible { outline: 3px solid #927139; outline-offset: 3px; }
-  .mobile-menu-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; font-size: 22px; color: #f7f4ee; font-weight: 600; letter-spacing: -.3px; }
+  .mobile-menu-heading { display: flex; align-items: center; justify-content: space-between; flex: 0 0 auto; margin-bottom: 18px; font-size: 22px; color: #f7f4ee; font-weight: 600; letter-spacing: -.3px; }
   .close-menu { position: static; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: rgba(255,255,255,.16); color: #fff; -webkit-tap-highlight-color: transparent; }
-  .mobile-menu-actions { display: grid; gap: 10px; margin-top: 22px; }
-  .site-header .menu-call, .site-header .menu-booking { display: flex; align-items: center; justify-content: center; min-height: 48px; margin: 0; border-radius: 16px; font-weight: 600; }
+  .site-header .header-nav.xmenu {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .site-header .header-nav.xmenu > .nav,
+  .site-header .header-nav.xmenu .nav.navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 0 0 auto;
+    float: none !important;
+    width: 100% !important;
+    clear: both !important;
+  }
+  .site-header .header-nav.xmenu .nav > li {
+    float: none !important;
+    display: block !important;
+    width: 100% !important;
+    clear: both !important;
+  }
+  .mobile-menu-actions {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: 22px;
+    position: static !important;
+    float: none !important;
+    clear: both !important;
+  }
+  .site-header .menu-call,
+  .site-header .menu-booking {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-height: 48px;
+    margin: 0 !important;
+    position: static !important;
+    float: none !important;
+    border-radius: 16px;
+    font-weight: 600;
+  }
   .site-header .menu-call { color: #fff !important; border: 1.5px solid rgba(255,255,255,.78) !important; background: rgba(255,255,255,.08) !important; }
   .site-header .menu-booking { color: #173344 !important; background: #d2b57a !important; border: 0 !important; }
   .hero-section, .hero-section .main-slider { min-height: 82svh; height: 82svh; max-height: 780px; }
@@ -543,16 +624,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
 
-/* Logo koji je dostavio vlasnik sajta. */
-.site-header .logo-header .brand-logo { display: block; width: 156px; height: 90px; max-width: none; object-fit: contain; }
-.home-footer .brand-logo { display: block; width: 240px; height: 138px; object-fit: contain; }
-@media (max-width: 991px) { .site-header .logo-header .brand-logo { width: 132px; height: 76px; } }
+/* Logo: kuća + Kućni Sjaj (bez ugrađenog slogana). */
+.site-header .logo-header .brand-logo {
+  display: block;
+  width: 200px;
+  height: 152px;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  overflow: visible;
+}
+.home-footer .brand-logo { display: block; width: 260px; height: 198px; object-fit: contain; }
+@media (max-width: 991px) {
+  .site-header .logo-header .brand-logo { width: 160px; height: 122px; }
+}
 
-/* Sitni slogan se prikazuje kao oštar HTML tekst, umesto smanjenog rastera. */
-.brand-logo-wrap { display: inline-flex; align-items: center; }
+/* Sitni slogan ostaje uklonjen — samo marka. */
+.brand-logo-wrap { display: inline-flex; align-items: center; overflow: visible; }
 .brand-logo-caption { display: none !important; }
-.site-header .logo-header .brand-mark > .brand-logo-wrap { display: inline-flex; align-items: center; width: 156px; }
-@media (max-width: 991px) { .site-header .logo-header .brand-mark > .brand-logo-wrap { width: 132px; } }
+.site-header .logo-header .brand-mark > .brand-logo-wrap { display: inline-flex; align-items: center; width: 200px; }
+@media (max-width: 991px) { .site-header .logo-header .brand-mark > .brand-logo-wrap { width: 160px; } }
 
 /* Usluge na početnoj: staklo, dubina i diskretno svetlo. */
 .premium-services { background: radial-gradient(ellipse at 50% 0, #315f765c, transparent 65%), #102938; }
@@ -663,14 +754,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .site-header .header-nav.xmenu .nav > li { overflow: visible; width: 100%; list-style: none; }
   .site-header .header-nav.xmenu .nav > li > a,
   .header-style-6.site-header .header-nav.xmenu .nav > li > a {
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
     overflow: visible;
-    border: 0 !important;
-    border-bottom: 0 !important;
+    float: none !important;
     box-shadow: none;
-    background: transparent !important;
-    background-color: transparent !important;
     background-image: none;
     text-shadow: none;
     color: #f7fbff !important;
