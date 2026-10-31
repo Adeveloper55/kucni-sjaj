@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
   <title>Usluge čišćenja stanova i kuća u Beogradu</title>
-  <meta name="description" content="Redovno i generalno čišćenje doma, čišćenje nakon renoviranja i pranje prozora. Izaberite uslugu i zatražite procenu.">
+  <meta name="description" content="Redovno i generalno čišćenje, renoviranje, useljenje, dodatne usluge i čišćenje poslovnog prostora u Beogradu. Izaberite uslugu i zatražite procenu.">
   <meta name="theme-color" content="#173344">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sr_RS">
   <meta property="og:title" content="Usluge čišćenja stanova i kuća u Beogradu">
-  <meta property="og:description" content="Redovno i generalno čišćenje doma, čišćenje nakon renoviranja i pranje prozora. Izaberite uslugu i zatražite procenu.">
+  <meta property="og:description" content="Redovno i generalno čišćenje, renoviranje, useljenje, dodatne usluge i čišćenje poslovnog prostora u Beogradu. Izaberite uslugu i zatražite procenu.">
   <!-- TODO SITE_URL: canonical, og:url i og:image dodaje js/site.js tek kada postoji potvrđen domen. -->
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="plugins/xmenu/css/xmenu.css">
   <link rel="stylesheet" href="css/skin/skin-4.css">
   <link rel="stylesheet" href="css/templete.css">
-  <link rel="stylesheet" href="css/custom.css?v=8">
-<script type="application/ld+json" id="business-schema">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kućni Sjaj","description":"Čišćenje stanova i kuća u Beogradu.","areaServed":{"@type":"City","name":"Beograd"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Usluge čišćenja doma","itemListElement":[{"@type":"Service","name":"Redovno čišćenje"},{"@type":"Service","name":"Generalno čišćenje"},{"@type":"Service","name":"Čišćenje nakon renoviranja"},{"@type":"Service","name":"Čišćenje pri useljenju ili iseljenju"},{"@type":"Service","name":"Čišćenje kuhinje i kupatila"},{"@type":"Service","name":"Pranje prozora"}]},"telephone":"+38162770593","url":"https://kucnisjaj.audaxtestsajt.com/"}</script>
+  <link rel="stylesheet" href="css/custom.css?v=14">
+<script type="application/ld+json" id="business-schema">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kućni Sjaj","description":"Čišćenje stanova i kuća u Beogradu.","areaServed":{"@type":"City","name":"Beograd"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Usluge čišćenja doma","itemListElement":[{"@type":"Service","name":"Redovno čišćenje"},{"@type":"Service","name":"Generalno čišćenje"},{"@type":"Service","name":"Čišćenje nakon renoviranja"},{"@type":"Service","name":"Čišćenje pre useljenja / nakon iseljenja"},{"@type":"Service","name":"Pranje prozora"},{"@type":"Service","name":"Čišćenje poslovnog prostora"}]},"telephone":"+38162770593","url":"https://kucnisjaj.audaxtestsajt.com/"}</script>
 
 
 <link rel="canonical" href="https://kucnisjaj.audaxtestsajt.com/usluge.html">
@@ -39,12 +39,33 @@
 <header class="site-header header-style-6" id="pocetna">
   <div class="main-bar-wraper sticky-header"><div class="main-bar clearfix"><div class="container-fluid inner-bar align-items-center clearfix">
     <div class="logo-header"><!-- BRAND --><a class="brand-mark" href="./" aria-label="Kućni Sjaj — početna" data-brand-link><span class="brand-logo-wrap"><img class="brand-logo" src="images/kucni-sjaj-logo.webp?v=8" alt="Kućni Sjaj" width="659" height="501" decoding="async"></span></a></div>
-    <button type="button" class="xmenu-toggler navicon" data-target="#xMenuNav" aria-controls="xMenuNav" aria-expanded="false" aria-label="Otvori meni"><span></span><span></span><span></span></button>
+    <button type="button" class="xmenu-toggler navicon" data-target="#xMenuNav" aria-controls="xMenuNav" aria-expanded="false" aria-label="Otvori meni"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
     <div class="menu-close fade-overlay" aria-hidden="true"></div>
     <nav class="header-nav xmenu xmenu-end mo-left" id="xMenuNav" aria-label="Glavna navigacija">
       <div class="mobile-menu-heading"><span>Meni</span><button type="button" class="close-menu" aria-label="Zatvori meni"><i class="fa fa-times" aria-hidden="true"></i></button></div>
       <ul class="nav navbar-nav"><li><a href="./">Početna</a></li>
-<li><a href="usluge.html" class="active" aria-current="page">Usluge</a></li>
+<li class="nav-dropdown is-current">
+  <div class="nav-dropdown-trigger">
+    <a href="usluge.html" class="active" aria-current="page">Usluge</a>
+    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-submenu-usluge" aria-label="Prikaži spisak: Usluge"><span class="nav-dropdown-caret" aria-hidden="true"></span></button>
+  </div>
+  <ul class="sub-menu" id="nav-submenu-usluge">
+      <li><a href="usluge.html" class="nav-all-services" aria-current="page">Sve usluge</a></li>
+      <li><a href="redovno-ciscenje.html">Redovno čišćenje</a></li>
+      <li><a href="generalno-ciscenje.html">Generalno čišćenje</a></li>
+      <li><a href="ciscenje-nakon-renoviranja.html">Čišćenje nakon renoviranja</a></li>
+      <li><a href="ciscenje-useljenje-iseljenje.html">Čišćenje pre useljenja / nakon iseljenja</a></li>
+      <li><a href="kuhinjski-aparati-i-elementi.html">Kuhinjski aparati i elementi</a></li>
+      <li><a href="ciscenje-kuhinjskih-elemenata-iznutra.html">Čišćenje kuhinjskih elemenata iznutra</a></li>
+      <li><a href="detaljno-ciscenje-terase.html">Detaljno čišćenje terase</a></li>
+      <li><a href="peglanje.html">Peglanje</a></li>
+      <li><a href="pranje-roletni.html">Pranje roletni</a></li>
+      <li><a href="pranje-prozora.html">Pranje prozora</a></li>
+      <li><a href="ciscenje-zgrada.html">Čišćenje zgrada</a></li>
+      <li><a href="ciscenje-poslovnog-prostora.html">Čišćenje poslovnog prostora</a></li>
+      <li><a href="ordinacije-i-kancelarije.html">Ordinacije i kancelarije</a></li>
+  </ul>
+</li>
 <li><a href="cenovnik.html">Cenovnik</a></li>
 <li><a href="kako-funkcionise.html">Kako funkcioniše</a></li>
 <li><a href="o-nama.html">O nama</a></li>
@@ -59,37 +80,87 @@
   </div></div></div>
 </header>
 <main id="main" class="page-content bg-white" tabindex="-1">
-<section class="page-banner banner-split" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy"><nav aria-label="Putanja stranice"><ol class="breadcrumbs"><li><a href="./">Početna</a></li><li aria-current="page">Usluge</li></ol></nav><h1 id="page-title">Usluge</h1><p>Šest usluga za stan ili kuću u Beogradu, od tihog redovnog održavanja do dana kada prostor treba da se vrati u red posle radova, selidbe ili duže pauze.</p><p>Ne treba vam spisak svih prostorija ni stručan naziv. Opišite stan i šta vam je najvažnije. Pre dolaska kažemo šta ulazi u obim i koja je cena.</p><ul class="banner-points"><li><strong>Svakodnevni ritam</strong><span>Redovno čišćenje drži podove, prašinu i prostorije koje koristite, bez da čeka slobodan vikend.</span></li><li><strong>Ceo dom odjednom</strong><span>Generalno čišćenje ide dublje: kuhinja, kupatilo i mesta koja se u žurbi preskoče.</span></li><li><strong>Kad se život pomeri</strong><span>Posle renoviranja, useljenje ili iseljenje, kuhinja, kupatilo i pranje prozora.</span></li></ul></div><figure class="page-banner-photo"><span class="page-banner-frame"><img src="images/banners/usluge.webp" width="1152" height="864" alt="Svetla kuhinja sa zelenim elementima, sudoperom i činijom limuna"></span></figure></div></section>
-<section id="usluge" class="section-full content-inner premium-services services-area2" aria-labelledby="services-title"><div class="container-fluid"><div class="section-head style1 text-center"><p class="section-kicker">Usluge za vaš dom</p><h2 id="services-title" class="title">Šta treba da očistimo?</h2><p>Šest usluga, jedan jasan dogovor. Od tihog redovnog održavanja do detalja posle renoviranja — izaberite ono što vašem domu sada treba.</p></div><div class="row service-grid"><div class="col-lg-4 col-md-6"><article id="usluga-redovno" class="dlab-box services-style-2 service-card text-center">
+<section class="page-banner banner-split" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy"><nav aria-label="Putanja stranice"><ol class="breadcrumbs"><li><a href="./">Početna</a></li><li aria-current="page">Usluge</li></ol></nav><h1 id="page-title">Usluge</h1><p>Sve usluge iz cenovnika na jednom mestu: od tihog redovnog održavanja do renoviranja, useljenja, dodataka i poslovnog prostora.</p><p>Ne treba vam spisak svih prostorija ni stručan naziv. Opišite stan i šta vam je najvažnije. Pre dolaska kažemo šta ulazi u obim i koja je cena.</p><ul class="banner-points"><li><strong>Svakodnevni ritam</strong><span>Redovno čišćenje drži podove, prašinu i prostorije koje koristite, bez da čeka slobodan vikend.</span></li><li><strong>Ceo dom odjednom</strong><span>Generalno čišćenje ide dublje: kuhinja, kupatilo i mesta koja se u žurbi preskoče.</span></li><li><strong>Kad se život pomeri</strong><span>Renoviranje, useljenje ili iseljenje, dodatne usluge i čišćenje poslovnog prostora.</span></li></ul></div><figure class="page-banner-photo"><span class="page-banner-frame"><img src="images/banners/usluge.webp" width="1152" height="864" alt="Svetla kuhinja sa zelenim elementima, sudoperom i činijom limuna"></span></figure></div></section>
+<section id="usluge" class="section-full content-inner premium-services services-area2" aria-labelledby="services-title"><div class="container-fluid"><div class="section-head style1 text-center"><p class="section-kicker">Usluge za vaš dom</p><h2 id="services-title" class="title">Šta treba da očistimo?</h2><p>Od tihog redovnog održavanja do detalja posle renoviranja — izaberite ono što vašem domu sada treba. Sve što je u cenovniku, navedeno je i ovde.</p></div><div class="row service-grid"><div class="col-lg-6 col-md-6"><article id="usluga-redovno" class="dlab-box services-style-2 service-card text-center">
   <div class="service-photo service-compare" role="img" aria-label="Spavaća soba pre i posle redovnog čišćenja" data-before-delay="2000" data-reveal-duration="1400" data-clean-hold="2600"><img class="comparison-before" loading="lazy" decoding="async" src="images/usluge/redovno-prljav.webp" width="1280" height="720" alt=""><div class="comparison-clean"><img loading="lazy" src="images/usluge/redovno-cist.webp" width="1280" height="720" alt="" decoding="async"></div><span class="comparison-sweep" aria-hidden="true"></span></div>
   <div class="dlab-content">
-  <h3 class="dlab-tilte m-b10">Redovno čišćenje</h3><p>Mirno održavanje stana ili kuće, u ritmu koji vama odgovara. Podovi, površine i svakodnevni prostori ostaju uredni, bez da čišćenje čeka slobodan vikend.</p>
-  <a href="cenovnik.html#cena-redovno" class="site-button btn-block button-md radius-sm" aria-label="Pogledaj cenu: Redovno čišćenje">Pogledaj cenu <i aria-hidden="true" class="fa fa-arrow-right"></i></a></div>
-</article></div><div class="col-lg-4 col-md-6"><article id="usluga-generalno" class="dlab-box services-style-2 service-card text-center">
+  <h3 class="dlab-tilte m-b10"><a href="redovno-ciscenje.html">Redovno čišćenje</a></h3><p>Za stan ili kuću koja se već drži uredno — mi dođemo redovno i odradimo ono što treba. Podovi, prašina, kuhinja, kupatilo. Vi birate ritam, mi držimo prostor čistim.</p>
+  <a href="redovno-ciscenje.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Redovno čišćenje">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-redovno" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-6 col-md-6"><article id="usluga-generalno" class="dlab-box services-style-2 service-card text-center">
   <div class="service-photo service-compare" role="img" aria-label="Kuhinjska ploča pre i posle generalnog čišćenja" data-before-delay="1700" data-reveal-duration="1400" data-clean-hold="2800"><img class="comparison-before" loading="lazy" decoding="async" src="images/usluge/generalno-prljav.webp" width="1280" height="720" alt=""><div class="comparison-clean"><img loading="lazy" src="images/usluge/generalno-cist.webp" width="1280" height="720" alt="" decoding="async"></div><span class="comparison-sweep" aria-hidden="true"></span></div>
   <div class="dlab-content">
-  <h3 class="dlab-tilte m-b10">Generalno čišćenje</h3><p>Temeljno čišćenje celog doma: prašina u uglovima, kuhinja, kupatilo i površine koje se u žurbi preskoče. Za dane kada prostor treba da zablista iznova.</p>
-  <a href="cenovnik.html#cena-generalno" class="site-button btn-block button-md radius-sm" aria-label="Pogledaj cenu: Generalno čišćenje">Pogledaj cenu <i aria-hidden="true" class="fa fa-arrow-right"></i></a></div>
-</article></div><div class="col-lg-4 col-md-6"><article id="usluga-renoviranje" class="dlab-box services-style-2 service-card text-center">
+  <h3 class="dlab-tilte m-b10"><a href="generalno-ciscenje.html">Generalno čišćenje</a></h3><p>Kad treba da se ide dublje — kuhinja, kupatilo, kamenac, lajsne, uglovi koje inače preskočite. Jednokratno, temeljito, da stan posle toga stvarno izgleda čisto.</p>
+  <a href="generalno-ciscenje.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Generalno čišćenje">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-generalno" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-6 col-md-6"><article id="usluga-renoviranje" class="dlab-box services-style-2 service-card text-center">
   <div class="service-photo service-compare" role="img" aria-label="Prostorija pre i posle čišćenja nakon renoviranja" data-before-delay="2300" data-reveal-duration="1400" data-clean-hold="2400"><img class="comparison-before" loading="lazy" decoding="async" src="images/usluge/renoviranje-prljav.webp" width="1280" height="720" alt=""><div class="comparison-clean"><img loading="lazy" src="images/usluge/renoviranje-cist.webp" width="1280" height="720" alt="" decoding="async"></div><span class="comparison-sweep" aria-hidden="true"></span></div>
   <div class="dlab-content">
-  <h3 class="dlab-tilte m-b10">Čišćenje nakon renoviranja</h3><p>Prašina sa zidova, stolarije i podova nakon radova. Vraćamo domu miran, useljiv izgled pre nego što se nameštaj i svakodnevni život vrate u njega.</p>
-  <a href="cenovnik.html#cena-renoviranje" class="site-button btn-block button-md radius-sm" aria-label="Pogledaj cenu: Čišćenje nakon renoviranja">Pogledaj cenu <i aria-hidden="true" class="fa fa-arrow-right"></i></a></div>
-</article></div><div class="col-lg-4 col-md-6"><article id="usluga-useljenje" class="dlab-box services-style-2 service-card text-center">
+  <h3 class="dlab-tilte m-b10"><a href="ciscenje-nakon-renoviranja.html">Čišćenje nakon renoviranja</a></h3><p>Prašina sa zidova, stolarije i podova nakon radova. Vraćamo domu miran, useljiv izgled pre nego što se nameštaj i svakodnevni život vrate u njega.</p>
+  <a href="ciscenje-nakon-renoviranja.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Čišćenje nakon renoviranja">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-renoviranje" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-6 col-md-6"><article id="usluga-useljenje" class="dlab-box services-style-2 service-card text-center">
   <div class="service-photo service-compare" role="img" aria-label="Hodnik pre i posle čišćenja pri useljenju" data-before-delay="1900" data-reveal-duration="1400" data-clean-hold="3000"><img class="comparison-before" loading="lazy" decoding="async" src="images/usluge/useljenje-prljav.webp" width="1280" height="720" alt=""><div class="comparison-clean"><img loading="lazy" src="images/usluge/useljenje-cist.webp" width="1280" height="720" alt="" decoding="async"></div><span class="comparison-sweep" aria-hidden="true"></span></div>
   <div class="dlab-content">
-  <h3 class="dlab-tilte m-b10">Čišćenje pri useljenju ili iseljenju</h3><p>Prazan stan spreman za prve kutije, ili prostor ostavljen uredan posle iseljenja. Detaljno, da ključevi menjaju ruke bez neprijatnih iznenađenja.</p>
-  <a href="cenovnik.html#cena-useljenje" class="site-button btn-block button-md radius-sm" aria-label="Pogledaj cenu: Čišćenje pri useljenju ili iseljenju">Pogledaj cenu <i aria-hidden="true" class="fa fa-arrow-right"></i></a></div>
-</article></div><div class="col-lg-4 col-md-6"><article id="usluga-kuhinja" class="dlab-box services-style-2 service-card text-center">
-  <div class="service-photo service-compare" role="img" aria-label="Kupatilo pre i posle detaljnog čišćenja" data-before-delay="2100" data-reveal-duration="1400" data-clean-hold="2500"><img class="comparison-before" loading="lazy" decoding="async" src="images/usluge/kuhinja-prljav.webp" width="1280" height="720" alt=""><div class="comparison-clean"><img loading="lazy" src="images/usluge/kuhinja-cist.webp" width="1280" height="720" alt="" decoding="async"></div><span class="comparison-sweep" aria-hidden="true"></span></div>
+  <h3 class="dlab-tilte m-b10"><a href="ciscenje-useljenje-iseljenje.html">Čišćenje pre useljenja / nakon iseljenja</a></h3><p>Prazan stan spreman za prve kutije, ili prostor ostavljen uredan posle iseljenja. Detaljno, da ključevi menjaju ruke bez neprijatnih iznenađenja.</p>
+  <a href="ciscenje-useljenje-iseljenje.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Čišćenje pre useljenja ili nakon iseljenja">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-useljenje" class="site-button-link">Pogledaj cenu</a></div>
+</article></div></div></div></section>
+<section id="dodatne-usluge-pregled" class="section-full content-inner premium-services services-area2" aria-labelledby="extras-services-title"><div class="container-fluid"><div class="section-head style1 text-center"><p class="section-kicker">Dodatna pažnja</p><h2 id="extras-services-title" class="title">Dodatne usluge</h2><p>Kuhinjski aparati i elementi, terasa, peglanje, roletne ili prozori — dogovaramo uz osnovno čišćenje ili posebno.</p></div><div class="row service-grid"><div class="col-lg-4 col-md-6"><article id="usluga-aparati" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/dodatne/rerna.webp" width="1152" height="864" alt="Čisti kuhinjski aparati i elementi"></div>
   <div class="dlab-content">
-  <h3 class="dlab-tilte m-b10">Čišćenje kuhinje i kupatila</h3><p>Mast, kamenac i svakodnevni tragovi na mestima koja se najviše koriste. Kuhinja i kupatilo dobijaju pažnju koju brzo održavanje obično preskoči.</p>
-  <a href="cenovnik.html#dodatne-usluge" class="site-button btn-block button-md radius-sm" aria-label="Pogledaj cenu: Čišćenje kuhinje i kupatila">Pogledaj cenu <i aria-hidden="true" class="fa fa-arrow-right"></i></a></div>
+  <h3 class="dlab-tilte m-b10"><a href="kuhinjski-aparati-i-elementi.html">Kuhinjski aparati i elementi</a></h3><p>Rerna, ploča, frižider i kuhinjski elementi — masnoća, tragovi i površine koje svakodnevna upotreba najbrže zaprlja.</p>
+  <a href="kuhinjski-aparati-i-elementi.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Kuhinjski aparati i elementi">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-aparati" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-4 col-md-6"><article id="usluga-elementi" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/dodatne/elementi.webp" width="1152" height="864" alt="Očišćeni kuhinjski elementi iznutra"></div>
+  <div class="dlab-content">
+  <h3 class="dlab-tilte m-b10"><a href="ciscenje-kuhinjskih-elemenata-iznutra.html">Čišćenje kuhinjskih elemenata iznutra</a></h3><p>Ormarići i fioke koje se retko otvaraju do kraja — prašina, mrvice i tragovi koji ostanu iza svakodnevne upotrebe.</p>
+  <a href="ciscenje-kuhinjskih-elemenata-iznutra.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Čišćenje kuhinjskih elemenata iznutra">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#dodatne-usluge" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-4 col-md-6"><article id="usluga-terasa" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/dodatne/terasa.webp" width="1152" height="864" alt="Čista terasa posle pranja"></div>
+  <div class="dlab-content">
+  <h3 class="dlab-tilte m-b10"><a href="detaljno-ciscenje-terase.html">Detaljno čišćenje terase</a></h3><p>Pod, ograde i dostupne površine terase — da spoljni prostor opet bude mesto za sedenje, ne skladište prašine.</p>
+  <a href="detaljno-ciscenje-terase.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Detaljno čišćenje terase">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#dodatne-usluge" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-4 col-md-6"><article id="usluga-peglanje" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/dodatne/peglanje.webp" width="1152" height="864" alt="Peglanje veša"></div>
+  <div class="dlab-content">
+  <h3 class="dlab-tilte m-b10"><a href="peglanje.html">Peglanje</a></h3><p>Veš uredan i spreman za ormar — dogovorimo koliko sati i šta ulazi u obim.</p>
+  <a href="peglanje.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Peglanje">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#dodatne-usluge" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-4 col-md-6"><article id="usluga-roletne" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/dodatne/roletne.webp" width="1152" height="864" alt="Čiste roletne na prozoru"></div>
+  <div class="dlab-content">
+  <h3 class="dlab-tilte m-b10"><a href="pranje-roletni.html">Pranje roletni</a></h3><p>Roletne bez prašine i tragova — po prozoru, koliko ih imate i koliko su zaprljane.</p>
+  <a href="pranje-roletni.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Pranje roletni">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#dodatne-usluge" class="site-button-link">Pogledaj cenu</a></div>
 </article></div><div class="col-lg-4 col-md-6"><article id="usluga-prozori" class="dlab-box services-style-2 service-card text-center">
   <div class="service-photo service-compare" role="img" aria-label="Prozor pre i posle pranja" data-before-delay="1600" data-reveal-duration="1400" data-clean-hold="2700"><img class="comparison-before" loading="lazy" decoding="async" src="images/usluge/prozori-prljav.webp" width="1280" height="720" alt=""><div class="comparison-clean"><img loading="lazy" src="images/usluge/prozori-cist.webp" width="1280" height="720" alt="" decoding="async"></div><span class="comparison-sweep" aria-hidden="true"></span></div>
   <div class="dlab-content">
-  <h3 class="dlab-tilte m-b10">Pranje prozora</h3><p>Staklo bez tragova, da dnevna svetlost ponovo uđe u sobu. Peremo dostupne prozore i staklene površine, onoliko koliko dogovorimo.</p>
-  <a href="cenovnik.html#cena-prozori" class="site-button btn-block button-md radius-sm" aria-label="Pogledaj cenu: Pranje prozora">Pogledaj cenu <i aria-hidden="true" class="fa fa-arrow-right"></i></a></div>
+  <h3 class="dlab-tilte m-b10"><a href="pranje-prozora.html">Pranje prozora</a></h3><p>Staklo sa obe strane, okviri i klupice — po prozoru. Visoke ili zaprljane prozore dogovaramo posebno.</p>
+  <a href="pranje-prozora.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Pranje prozora">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-prozori" class="site-button-link">Pogledaj cenu</a></div>
+</article></div></div></div></section>
+<section id="poslovni-usluge" class="section-full content-inner premium-services services-area2" aria-labelledby="business-services-title"><div class="container-fluid"><div class="section-head style1 text-center"><p class="section-kicker">Za zgrade i firme</p><h2 id="business-services-title" class="title">Čišćenje poslovnog prostora</h2><p>Zgrade, kancelarije i ordinacije — termin i obim dogovaramo pre dolaska.</p></div><div class="row service-grid"><div class="col-lg-4 col-md-6"><article id="usluga-zgrade" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/poslovni/zgrade.webp" width="1280" height="720" alt="Čist hodnik stambene zgrade"></div>
+  <div class="dlab-content">
+  <h3 class="dlab-tilte m-b10"><a href="ciscenje-zgrada.html">Čišćenje zgrada</a></h3><p>Ulazi, hodnici, stepeništa i zajedničke prostorije — uredan prvi utisak za stanare i goste.</p>
+  <a href="ciscenje-zgrada.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Čišćenje zgrada">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-zgrade" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-4 col-md-6"><article id="usluga-poslovni" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/poslovni/poslovni.webp" width="1280" height="720" alt="Čist otvoreni poslovni prostor"></div>
+  <div class="dlab-content">
+  <h3 class="dlab-tilte m-b10"><a href="ciscenje-poslovnog-prostora.html">Čišćenje poslovnog prostora</a></h3><p>Kancelarije, open space i zajednički prostori firme — da radni dan počne u čistom prostoru.</p>
+  <a href="ciscenje-poslovnog-prostora.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Čišćenje poslovnog prostora">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-poslovni" class="site-button-link">Pogledaj cenu</a></div>
+</article></div><div class="col-lg-4 col-md-6"><article id="usluga-ordinacije" class="dlab-box services-style-2 service-card text-center">
+  <div class="service-photo"><img loading="lazy" decoding="async" src="images/poslovni/ordinacije.webp" width="1280" height="720" alt="Čista ordinacija spremna za prijem"></div>
+  <div class="dlab-content">
+  <h3 class="dlab-tilte m-b10"><a href="ordinacije-i-kancelarije.html">Ordinacije i kancelarije</a></h3><p>Higijensko čišćenje ordinacija, prijemnih i radnih prostorija — pažljivo i po dogovoru.</p>
+  <a href="ordinacije-i-kancelarije.html" class="site-button btn-block button-md radius-sm" aria-label="Više o usluzi: Ordinacije i kancelarije">Više o usluzi <i aria-hidden="true" class="fa fa-arrow-right"></i></a>
+  <a href="cenovnik.html#cena-ordinacije" class="site-button-link">Pogledaj cenu</a></div>
 </article></div></div></div></section>
 <section class="section-full content-inner overlay-primary-dark inquiry-cta" aria-labelledby="cta-title"><div class="container-fluid"><div class="row align-items-center"><div class="col-lg-8 text-white"><h2 id="cta-title">Recite nam kakav je prostor</h2><p>Napišite šta želite da bude očišćeno i koliko je stan ili kuća velika. Termin i cenu dogovaramo pre dolaska.</p></div><div class="col-lg-4"><div class="cta-actions"><a href="kontakt.html#zakazivanje" class="site-button button-md radius-sm">Zakaži čišćenje</a><a class="call-button call-button-light" data-contact="phone" href="tel:+38162770593">Pozovi</a></div></div></div></div></section>
 
@@ -99,7 +170,7 @@
 </div>
 <script defer src="js/site.config.js"></script>
 <script defer src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script defer src="js/custom.js"></script>
+<script defer src="js/custom.js?v=13"></script>
 <script defer src="js/service-comparison.js"></script>
 <script defer src="js/site.js"></script>
 <noscript><style>.rise-item{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>

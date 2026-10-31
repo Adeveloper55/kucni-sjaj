@@ -25,15 +25,15 @@
       },
       {
         "@type": "Service",
-        "name": "Čišćenje pri useljenju ili iseljenju"
-      },
-      {
-        "@type": "Service",
-        "name": "Čišćenje kuhinje i kupatila"
+        "name": "Čišćenje pre useljenja / nakon iseljenja"
       },
       {
         "@type": "Service",
         "name": "Pranje prozora"
+      },
+      {
+        "@type": "Service",
+        "name": "Čišćenje poslovnog prostora"
       }
     ]
   }

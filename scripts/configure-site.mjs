@@ -70,18 +70,34 @@ const legal = [
 function shot(src, width, height, alt) {
   return `<figure class="page-banner-photo"><span class="page-banner-frame"><img src="${src}" width="${width}" height="${height}" alt="${escape(alt)}"></span></figure>`;
 }
-function crumbs(label) {
-  const title = label === 'FAQ' ? 'Česta pitanja' : label;
-  return `<nav aria-label="Putanja stranice"><ol class="breadcrumbs"><li><a href="./">Početna</a></li><li aria-current="page">${escape(label)}</li></ol></nav><h1 id="page-title">${escape(title)}</h1>`;
+function crumbs(label, options = {}) {
+  const title = label === 'FAQ' ? 'Česta pitanja' : (options.h1 || label);
+  const trail = options.parent
+    ? `<li><a href="./">Početna</a></li><li><a href="${escape(options.parent.href)}">${escape(options.parent.label)}</a></li><li aria-current="page">${escape(label)}</li>`
+    : `<li><a href="./">Početna</a></li><li aria-current="page">${escape(label)}</li>`;
+  return `<nav aria-label="Putanja stranice"><ol class="breadcrumbs">${trail}</ol></nav><h1 id="page-title">${escape(title)}</h1>`;
 }
 function pageBanner(page, config) {
   const phone = escape(config.PHONE_NUMBER || '');
   const tel = String(config.PHONE_NUMBER || '').replace(/[^\d+]/g, '');
+  if (page.landing) {
+    const head = crumbs(page.label, {
+      h1: page.h1 || page.label,
+      parent: { href: 'usluge.html', label: 'Usluge' },
+    });
+    const img = page.image || 'images/banners/usluge.webp';
+    const width = page.imageWidth || 1280;
+    const height = page.imageHeight || 720;
+    const alt = page.imageAlt || page.label;
+    const price = page.priceNote ? `<p>${escape(page.priceNote)}</p>` : '';
+    const sizeNote = '<p class="service-price-note">Cena zavisi od veličine stana i sati rada.</p>';
+    return `<section class="page-banner banner-split" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>${escape(page.intro || '')}</p>${price}${sizeNote}<p><a href="kontakt.html#zakazivanje">Zakažite termin</a> · <a href="cenovnik.html">Cenovnik</a> · <a href="tel:${tel}">${phone}</a></p></div>${shot(img, width, height, alt)}</div></section>`;
+  }
   const head = crumbs(page.label);
   const banners = {
-    usluge: `<section class="page-banner banner-split" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Šest usluga za stan ili kuću u Beogradu, od tihog redovnog održavanja do dana kada prostor treba da se vrati u red posle radova, selidbe ili duže pauze.</p><p>Ne treba vam spisak svih prostorija ni stručan naziv. Opišite stan i šta vam je najvažnije. Pre dolaska kažemo šta ulazi u obim i koja je cena.</p><ul class="banner-points"><li><strong>Svakodnevni ritam</strong><span>Redovno čišćenje drži podove, prašinu i prostorije koje koristite, bez da čeka slobodan vikend.</span></li><li><strong>Ceo dom odjednom</strong><span>Generalno čišćenje ide dublje: kuhinja, kupatilo i mesta koja se u žurbi preskoče.</span></li><li><strong>Kad se život pomeri</strong><span>Posle renoviranja, useljenje ili iseljenje, kuhinja, kupatilo i pranje prozora.</span></li></ul></div>${shot('images/banners/usluge.webp', 1152, 864, 'Svetla kuhinja sa zelenim elementima, sudoperom i činijom limuna')}</div></section>`,
-    cenovnik: `<section class="page-banner banner-flip" aria-labelledby="page-title"><div class="container-fluid page-banner-grid">${shot('images/banners/cenovnik.webp', 1152, 864, 'Šolja, ključ i zatvorena sveska na hrastovom stolu')}<div class="page-banner-copy">${head}<p>Početne cene su ovde, a iznos za vaš stan kažemo pre nego što čišćenje počne. Nema naknadnog iznenađenja na vratima.</p><div class="banner-facts"><div><strong>2.000 RSD</strong><span>redovno čišćenje po satu</span></div><div><strong>2.500 RSD</strong><span>generalno čišćenje po satu</span></div><div><strong>od 200</strong><span>dinara po kvadratu posle renoviranja</span></div></div><p>Konačna cena zavisi od kvadrature, stanja prostora i dodataka kao što su rerna, frižider ili prozori. Ako je obim veći nego što je dogovoreno, radimo dalje samo uz novi dogovor.</p></div></div></section>`,
-    'kako-funkcionise': `<section class="page-banner banner-band" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Od poruke do čistog stana idu tri koraka. Vi kažete kakav je prostor, mi potvrdimo vreme i cenu, pa dolazimo i radimo tačno taj obim. Vi ne morate da provedete dan u rukavicama.</p><ol class="banner-steps"><li><b>Stavka 1</b><span>Opišete uslugu, približnu kvadraturu i šta vam je najvažnije.</span></li><li><b>Stavka 2</b><span>Javimo se sa terminom i cenom. Frižider, ljubimac i osetljive površine ulaze u taj razgovor.</span></li><li><b>Stavka 3</b><span>Dolazimo u potvrđeno vreme. Treba nam pristup stanu i kratko uputstvo šta ne dirati.</span></li></ol></div>${shot('images/banners/kako.webp', 1280, 720, 'Hodnik stana sa otvorenim vratima, kaputom i cipelama pored konzole')}</div></section>`,
+    usluge: `<section class="page-banner banner-split" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Sve usluge iz cenovnika na jednom mestu: od tihog redovnog održavanja do renoviranja, useljenja, dodataka i poslovnog prostora.</p><p>Ne treba vam spisak svih prostorija ni stručan naziv. Opišite stan i šta vam je najvažnije. Pre dolaska kažemo šta ulazi u obim i koja je cena.</p><ul class="banner-points"><li><strong>Svakodnevni ritam</strong><span>Redovno čišćenje drži podove, prašinu i prostorije koje koristite, bez da čeka slobodan vikend.</span></li><li><strong>Ceo dom odjednom</strong><span>Generalno čišćenje ide dublje: kuhinja, kupatilo i mesta koja se u žurbi preskoče.</span></li><li><strong>Kad se život pomeri</strong><span>Renoviranje, useljenje ili iseljenje, dodatne usluge i čišćenje poslovnog prostora.</span></li></ul></div>${shot('images/banners/usluge.webp', 1152, 864, 'Svetla kuhinja sa zelenim elementima, sudoperom i činijom limuna')}</div></section>`,
+    cenovnik: `<section class="page-banner banner-flip" aria-labelledby="page-title"><div class="container-fluid page-banner-grid">${shot('images/banners/cenovnik.webp', 1152, 864, 'Šolja, ključ i zatvorena sveska na hrastovom stolu')}<div class="page-banner-copy">${head}<p>Početne cene su ovde, a iznos za vaš stan kažemo pre nego što čišćenje počne. Nema naknadnog iznenađenja na vratima.</p><div class="banner-facts"><div><strong>1.800 RSD</strong><span>redovno čišćenje po satu</span></div><div><strong>2.300 RSD</strong><span>generalno čišćenje po satu</span></div><div><strong>od 2.800 RSD</strong><span>posle renoviranja po satu</span></div></div><p>Konačna cena zavisi od kvadrature, stanja prostora i dodataka kao što su kuhinjski aparati ili prozori. Ako je obim veći nego što je dogovoreno, radimo dalje samo uz novi dogovor.</p></div></div></section>`,
+    'kako-funkcionise': `<section class="page-banner banner-band" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Od poruke do čistog stana idu tri koraka. Vi kažete kakav je prostor, mi potvrdimo vreme i cenu, pa dolazimo i radimo tačno taj obim. Vi ne morate da provedete dan u rukavicama.</p><ol class="banner-steps"><li><b>Stavka 1</b><span>Opišete uslugu, približnu kvadraturu i šta vam je najvažnije.</span></li><li><b>Stavka 2</b><span>Javimo se sa terminom i cenom. Ljubimac i osetljive površine ulaze u taj razgovor.</span></li><li><b>Stavka 3</b><span>Dolazimo u potvrđeno vreme. Treba nam pristup stanu i kratko uputstvo šta ne dirati.</span></li></ol></div>${shot('images/banners/kako.webp', 1280, 720, 'Hodnik stana sa otvorenim vratima, kaputom i cipelama pored konzole')}</div></section>`,
     'o-nama': `<section class="page-banner banner-story" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Kućni Sjaj čisti stanove i kuće u Beogradu da uredan dom ne čeka slobodnu subotu. Dolazimo na adresu koju navedete, u termin koji prvo potvrdimo.</p><p>Nismo šalter na koji donosite stan. Razgovor počinje od toga kako prostor izgleda, koje prostorije traže više pažnje i šta ne sme da se dira. Tek tada biramo obim, a ne unapred sastavljen paket.</p><p>Pažnja ide na vaš dom: podove koje gazite, kuhinju u kojoj se kuva i kupatilo koje se vidi svako jutro. Cena i vreme stoje na stolu pre dolaska.</p><p class="banner-sign">Kućni Sjaj · čišćenje stanova u Beogradu</p></div>${shot('images/banners/o-nama.webp', 864, 1152, 'Nameštena spavaća soba sa maslinastom dekom, lampom i prozorom')}</div></section>`,
     faq: `<section class="page-banner banner-split" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Kratki odgovori pre nego što zakažete: šta ulazi u čišćenje, koliko traje, da li morate da budete kod kuće i kako nastaje cena.</p><div class="banner-questions"><p>Da li moram da budem kod kuće celog dana?</p><p>Kako znate cenu pre dolaska?</p><p>Šta da kažem za ljubimce, sredstva i stvari koje ne dirate?</p></div><p>Ako vaše pitanje nije među ovima, pozovite. Kraći je razgovor nego nagađanje tek kad se vrata otvore.</p></div>${shot('images/banners/faq.webp', 1152, 864, 'Dve šolje, telefon i zatvorena sveska na kuhinjskom pultu')}</div></section>`,
     kontakt: `<section class="page-banner banner-flip banner-reach" aria-labelledby="page-title"><div class="container-fluid page-banner-grid">${shot('images/banners/kontakt.webp', 1152, 864, 'Telefon, ključevi i vaza na drvenoj konzoli uz tamnoplavi zid')}<div class="page-banner-copy">${head}<p>Javite nam kakav je stan i šta želite da bude očišćeno. Uzvratimo predlogom termina i cenom, pre dolaska.</p><ul class="banner-points"><li><strong>Šta da kažete</strong><span>Vrsta usluge, približna kvadratura, deo Beograda i jedna rečenica o prioritetu.</span></li><li><strong>Gde nas dobijate</strong><span>Telefon, WhatsApp i Viber: <a href="tel:${tel}">${phone}</a>. Zona rada je Beograd.</span></li><li><strong>Šta nije rezervacija</strong><span>Željeni datum je predlog. Termin važi kad ga potvrdimo, a forma sama po sebi ne šalje upit.</span></li></ul></div></div></section>`,
@@ -90,11 +106,47 @@ function pageBanner(page, config) {
   };
   return banners[page.key] || banners.usluge;
 }
+const childrenByParent = Object.create(null);
+for (const item of pages) {
+  if (!item.parent) continue;
+  (childrenByParent[item.parent] ??= []).push(item);
+}
+function navLinkAttrs(current, ancestor) {
+  if (current) return ' class="active" aria-current="page"';
+  if (ancestor) return ' class="active"';
+  return '';
+}
+function buildNavigation(page) {
+  return pages.filter(item => item.nav !== false).map(item => {
+    const current = item.key === page.key;
+    const ancestor = page.parent === item.key;
+    const kids = childrenByParent[item.key] || [];
+    if (!kids.length) {
+      return `<li><a href="${destinations[item.key]}"${navLinkAttrs(current, ancestor)}>${escape(item.label)}</a></li>`;
+    }
+    const submenu = [
+      `<li><a href="${destinations[item.key]}" class="nav-all-services"${current ? ' aria-current="page"' : ''}>Sve usluge</a></li>`,
+      ...kids.map(child => {
+        const childCurrent = child.key === page.key;
+        return `<li><a href="${child.file}"${childCurrent ? ' class="active" aria-current="page"' : ''}>${escape(child.label)}</a></li>`;
+      }),
+    ].join('\n      ');
+    return `<li class="nav-dropdown${current || ancestor ? ' is-current' : ''}">
+  <div class="nav-dropdown-trigger">
+    <a href="${destinations[item.key]}"${navLinkAttrs(current, ancestor)}>${escape(item.label)}</a>
+    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-submenu-${item.key}" aria-label="Prikaži spisak: ${escape(item.label)}"><span class="nav-dropdown-caret" aria-hidden="true"></span></button>
+  </div>
+  <ul class="sub-menu" id="nav-submenu-${item.key}">
+      ${submenu}
+  </ul>
+</li>`;
+  }).join('\n');
+}
 for (const page of [...pages, ...legal]) {
   const home = page.key === 'pocetna';
   const content = await read(`content/${page.key}.html`);
   const canonical = siteURL ? new URL(home ? './' : page.file, siteURL).href : null;
-  const navigation = pages.map(item => `<li><a href="${destinations[item.key]}"${item.key === page.key ? ' class="active" aria-current="page"' : ''}>${escape(item.label)}</a></li>`).join('\n');
+  const navigation = buildNavigation(page);
   const schema = structuredClone(originalSchema);
   schema.name = config.brand;
   if (config.PHONE_NUMBER) schema.telephone = config.PHONE_NUMBER;
@@ -107,7 +159,9 @@ for (const page of [...pages, ...legal]) {
   let html = template(head, { title: escape(page.title), description: escape(page.description), schema: schemaTag, seo, sliderHead });
   html += `<body id="bg" class="home-page ${home ? '' : 'inner-page'}" data-page="${page.key}">\n<a class="skip-link" href="#main">Preskoči na sadržaj</a>\n<div class="page-wraper page-wraper-full font-roboto btn-lsnone">\n`;
   html += template(header, { navigation }) + '\n<main id="main" class="page-content bg-white" tabindex="-1">\n' + banner + '\n' + content + '\n</main>\n' + footer;
-  const pageScripts = home ? scripts.replace('<script defer src="js/custom.js">', sliderScripts + '\n<script defer src="js/custom.js">') : scripts;
+  const pageScripts = home
+    ? scripts.replace(/<script defer src="js\/custom\.js(?:\?v=\d+)?">/, `${sliderScripts}\n<script defer src="js/custom.js?v=13">`)
+    : scripts;
   html += pageScripts + '\n</body>\n</html>\n';
   // Keep configuration ahead of site.js; all scripts are defer and execute in document order.
   html = contacts(brand(links(html)));

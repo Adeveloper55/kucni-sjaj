@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="format-detection" content="telephone=no">
   <title>Cenovnik čišćenja stanova Beograd | Cene usluga</title>
-  <meta name="description" content="Redovno čišćenje 2.000 RSD/sat, generalno 2.500 RSD/sat, čišćenje nakon renoviranja od 200 RSD/m². Cena zavisi od veličine stana i sati.">
+  <meta name="description" content="Redovno čišćenje 1.800 RSD/sat, generalno 2.300 RSD/sat, čišćenje nakon renoviranja od 2.800 RSD/sat. Cena zavisi od veličine stana i sati rada.">
   <meta name="theme-color" content="#173344">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sr_RS">
   <meta property="og:title" content="Cenovnik čišćenja stanova Beograd | Cene usluga">
-  <meta property="og:description" content="Redovno čišćenje 2.000 RSD/sat, generalno 2.500 RSD/sat, čišćenje nakon renoviranja od 200 RSD/m². Cena zavisi od veličine stana i sati.">
+  <meta property="og:description" content="Redovno čišćenje 1.800 RSD/sat, generalno 2.300 RSD/sat, čišćenje nakon renoviranja od 2.800 RSD/sat. Cena zavisi od veličine stana i sati rada.">
   <!-- TODO SITE_URL: canonical, og:url i og:image dodaje js/site.js tek kada postoji potvrđen domen. -->
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="plugins/xmenu/css/xmenu.css">
   <link rel="stylesheet" href="css/skin/skin-4.css">
   <link rel="stylesheet" href="css/templete.css">
-  <link rel="stylesheet" href="css/custom.css?v=8">
-<script type="application/ld+json" id="business-schema">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kućni Sjaj","description":"Čišćenje stanova i kuća u Beogradu.","areaServed":{"@type":"City","name":"Beograd"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Usluge čišćenja doma","itemListElement":[{"@type":"Service","name":"Redovno čišćenje"},{"@type":"Service","name":"Generalno čišćenje"},{"@type":"Service","name":"Čišćenje nakon renoviranja"},{"@type":"Service","name":"Čišćenje pri useljenju ili iseljenju"},{"@type":"Service","name":"Čišćenje kuhinje i kupatila"},{"@type":"Service","name":"Pranje prozora"}]},"telephone":"+38162770593","url":"https://kucnisjaj.audaxtestsajt.com/"}</script>
+  <link rel="stylesheet" href="css/custom.css?v=14">
+<script type="application/ld+json" id="business-schema">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Kućni Sjaj","description":"Čišćenje stanova i kuća u Beogradu.","areaServed":{"@type":"City","name":"Beograd"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Usluge čišćenja doma","itemListElement":[{"@type":"Service","name":"Redovno čišćenje"},{"@type":"Service","name":"Generalno čišćenje"},{"@type":"Service","name":"Čišćenje nakon renoviranja"},{"@type":"Service","name":"Čišćenje pre useljenja / nakon iseljenja"},{"@type":"Service","name":"Pranje prozora"},{"@type":"Service","name":"Čišćenje poslovnog prostora"}]},"telephone":"+38162770593","url":"https://kucnisjaj.audaxtestsajt.com/"}</script>
 
 
 <link rel="canonical" href="https://kucnisjaj.audaxtestsajt.com/cenovnik.html">
@@ -39,12 +39,33 @@
 <header class="site-header header-style-6" id="pocetna">
   <div class="main-bar-wraper sticky-header"><div class="main-bar clearfix"><div class="container-fluid inner-bar align-items-center clearfix">
     <div class="logo-header"><!-- BRAND --><a class="brand-mark" href="./" aria-label="Kućni Sjaj — početna" data-brand-link><span class="brand-logo-wrap"><img class="brand-logo" src="images/kucni-sjaj-logo.webp?v=8" alt="Kućni Sjaj" width="659" height="501" decoding="async"></span></a></div>
-    <button type="button" class="xmenu-toggler navicon" data-target="#xMenuNav" aria-controls="xMenuNav" aria-expanded="false" aria-label="Otvori meni"><span></span><span></span><span></span></button>
+    <button type="button" class="xmenu-toggler navicon" data-target="#xMenuNav" aria-controls="xMenuNav" aria-expanded="false" aria-label="Otvori meni"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
     <div class="menu-close fade-overlay" aria-hidden="true"></div>
     <nav class="header-nav xmenu xmenu-end mo-left" id="xMenuNav" aria-label="Glavna navigacija">
       <div class="mobile-menu-heading"><span>Meni</span><button type="button" class="close-menu" aria-label="Zatvori meni"><i class="fa fa-times" aria-hidden="true"></i></button></div>
       <ul class="nav navbar-nav"><li><a href="./">Početna</a></li>
-<li><a href="usluge.html">Usluge</a></li>
+<li class="nav-dropdown">
+  <div class="nav-dropdown-trigger">
+    <a href="usluge.html">Usluge</a>
+    <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="nav-submenu-usluge" aria-label="Prikaži spisak: Usluge"><span class="nav-dropdown-caret" aria-hidden="true"></span></button>
+  </div>
+  <ul class="sub-menu" id="nav-submenu-usluge">
+      <li><a href="usluge.html" class="nav-all-services">Sve usluge</a></li>
+      <li><a href="redovno-ciscenje.html">Redovno čišćenje</a></li>
+      <li><a href="generalno-ciscenje.html">Generalno čišćenje</a></li>
+      <li><a href="ciscenje-nakon-renoviranja.html">Čišćenje nakon renoviranja</a></li>
+      <li><a href="ciscenje-useljenje-iseljenje.html">Čišćenje pre useljenja / nakon iseljenja</a></li>
+      <li><a href="kuhinjski-aparati-i-elementi.html">Kuhinjski aparati i elementi</a></li>
+      <li><a href="ciscenje-kuhinjskih-elemenata-iznutra.html">Čišćenje kuhinjskih elemenata iznutra</a></li>
+      <li><a href="detaljno-ciscenje-terase.html">Detaljno čišćenje terase</a></li>
+      <li><a href="peglanje.html">Peglanje</a></li>
+      <li><a href="pranje-roletni.html">Pranje roletni</a></li>
+      <li><a href="pranje-prozora.html">Pranje prozora</a></li>
+      <li><a href="ciscenje-zgrada.html">Čišćenje zgrada</a></li>
+      <li><a href="ciscenje-poslovnog-prostora.html">Čišćenje poslovnog prostora</a></li>
+      <li><a href="ordinacije-i-kancelarije.html">Ordinacije i kancelarije</a></li>
+  </ul>
+</li>
 <li><a href="cenovnik.html" class="active" aria-current="page">Cenovnik</a></li>
 <li><a href="kako-funkcionise.html">Kako funkcioniše</a></li>
 <li><a href="o-nama.html">O nama</a></li>
@@ -59,33 +80,24 @@
   </div></div></div>
 </header>
 <main id="main" class="page-content bg-white" tabindex="-1">
-<section class="page-banner banner-flip" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><figure class="page-banner-photo"><span class="page-banner-frame"><img src="images/banners/cenovnik.webp" width="1152" height="864" alt="Šolja, ključ i zatvorena sveska na hrastovom stolu"></span></figure><div class="page-banner-copy"><nav aria-label="Putanja stranice"><ol class="breadcrumbs"><li><a href="./">Početna</a></li><li aria-current="page">Cenovnik</li></ol></nav><h1 id="page-title">Cenovnik</h1><p>Početne cene su ovde, a iznos za vaš stan kažemo pre nego što čišćenje počne. Nema naknadnog iznenađenja na vratima.</p><div class="banner-facts"><div><strong>2.000 RSD</strong><span>redovno čišćenje po satu</span></div><div><strong>2.500 RSD</strong><span>generalno čišćenje po satu</span></div><div><strong>od 200</strong><span>dinara po kvadratu posle renoviranja</span></div></div><p>Konačna cena zavisi od kvadrature, stanja prostora i dodataka kao što su rerna, frižider ili prozori. Ako je obim veći nego što je dogovoreno, radimo dalje samo uz novi dogovor.</p></div></div></section>
+<section class="page-banner banner-flip" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><figure class="page-banner-photo"><span class="page-banner-frame"><img src="images/banners/cenovnik.webp" width="1152" height="864" alt="Šolja, ključ i zatvorena sveska na hrastovom stolu"></span></figure><div class="page-banner-copy"><nav aria-label="Putanja stranice"><ol class="breadcrumbs"><li><a href="./">Početna</a></li><li aria-current="page">Cenovnik</li></ol></nav><h1 id="page-title">Cenovnik</h1><p>Početne cene su ovde, a iznos za vaš stan kažemo pre nego što čišćenje počne. Nema naknadnog iznenađenja na vratima.</p><div class="banner-facts"><div><strong>1.800 RSD</strong><span>redovno čišćenje po satu</span></div><div><strong>2.300 RSD</strong><span>generalno čišćenje po satu</span></div><div><strong>od 2.800 RSD</strong><span>posle renoviranja po satu</span></div></div><p>Konačna cena zavisi od kvadrature, stanja prostora i dodataka kao što su kuhinjski aparati ili prozori. Ako je obim veći nego što je dogovoreno, radimo dalje samo uz novi dogovor.</p></div></div></section>
 <section id="cenovnik" class="section-full content-inner price-list pricing-stage" aria-labelledby="pricing-title">
   <div class="container-fluid">
     <div class="section-head style1">
       <p class="section-kicker">Usluge za vaš dom</p>
       <h2 id="pricing-title" class="title">Cenovnik usluga</h2>
-      <p>Izaberite uslugu prema potrebama vašeg prostora. Cena se dogovara pre početka čišćenja.</p>
+      <p>Jedno je održati stan urednim, drugo je očistiti ga od temelja. Ispod su dve najčešće usluge — šta tačno ulazi i koliko sati treba, dogovorimo pre dolaska.</p>
     </div>
     <div id="pricing-options" class="row pricing-grid confirmed-pricing" data-pricing-mode="published">
       <div class="col-lg-6">
         <article id="cena-redovno" class="pricingtable-wrapper pricingtable-style2" data-pricing-service="redovno">
           <div class="pricingtable-inner">
             <div class="pricingtable-price">
-              <h3>Redovno čišćenje</h3>
-              <p class="service-price"><strong>2.000 <span>RSD</span></strong> <span class="price-unit">/ sat</span></p>
+              <h3><a href="redovno-ciscenje.html">Redovno čišćenje</a></h3>
+              <p class="service-price"><strong>1.800 <span>RSD</span></strong> <span class="price-unit">/ sat</span></p>
             </div>
-            <p class="price-description">Za stanove i kuće koji se redovno održavaju.</p>
-            <h4 class="included-title">Uključuje:</h4>
-            <ul class="price-includes">
-              <li>usisavanje i pranje podova</li>
-              <li>brisanje prašine</li>
-              <li>čišćenje dostupnih površina</li>
-              <li>osnovno čišćenje kuhinje</li>
-              <li>čišćenje kupatila</li>
-              <li>iznošenje smeća</li>
-            </ul>
-            <p class="price-detail">Cena zavisi od veličine stana i sati.</p>
+            <p class="price-description">Za stanove i kuće koji se već drže u redu, samo treba neko da redovno prođe. Usisamo i operemo podove, obrišemo prašinu, prođemo kuhinju i kupatilo, iznesemo smeće — bez velikih zahvata, da prostor ostane uredan između termina.</p>
+            <p class="price-detail">Cena zavisi od veličine stana i sati rada.</p>
             <div class="pricingtable-footer"><a href="kontakt.html?usluga=redovno#zakazivanje" data-service="redovno" class="site-button radius-sm" aria-label="Zakaži redovno čišćenje">Zakaži čišćenje <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
           </div>
         </article>
@@ -94,73 +106,38 @@
         <article id="cena-generalno" class="pricingtable-wrapper pricingtable-style2" data-pricing-service="generalno">
           <div class="pricingtable-inner">
             <div class="pricingtable-price">
-              <h3>Generalno čišćenje</h3>
-              <p class="service-price"><strong>2.500 <span>RSD</span></strong> <span class="price-unit">/ sat</span></p>
+              <h3><a href="generalno-ciscenje.html">Generalno čišćenje</a></h3>
+              <p class="service-price"><strong>2.300 <span>RSD</span></strong> <span class="price-unit">/ sat</span></p>
             </div>
-            <p class="price-description">Detaljno čišćenje celog prostora.</p>
-            <h4 class="included-title">Uključuje:</h4>
-            <ul class="price-includes">
-              <li>detaljno čišćenje svih prostorija</li>
-              <li>detaljno čišćenje kuhinje</li>
-              <li>detaljno čišćenje kupatila</li>
-              <li>uklanjanje kamenca</li>
-              <li>detaljno brisanje dostupnih površina</li>
-              <li>vrata, prekidače i lajsne</li>
-              <li>usisavanje i pranje podova</li>
-            </ul>
-            <p class="price-detail">Cena zavisi od veličine stana i sati.</p>
+            <p class="price-description">Kad treba da se ide dublje, ne samo brzo održavanje. Prolazimo sobu po sobu — kuhinju i kupatilo temeljitije, kamenac, lajsne, vrata i prekidače, plus podove. Dobro za jednokratno čišćenje kad stan dugo nije detaljno rađen.</p>
+            <p class="price-detail">Cena zavisi od veličine stana i sati rada.</p>
             <div class="pricingtable-footer"><a href="kontakt.html?usluga=generalno#zakazivanje" data-service="generalno" class="site-button radius-sm" aria-label="Zatraži procenu za generalno čišćenje">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
           </div>
         </article>
       </div>
-      <div class="col-lg-4 col-md-6">
+      <div class="col-lg-6">
         <article id="cena-renoviranje" class="pricingtable-wrapper pricingtable-style2" data-pricing-service="renoviranje">
           <div class="pricingtable-inner">
             <div class="pricingtable-price">
-              <h3>Čišćenje nakon renoviranja</h3>
-              <p class="service-price"><span class="price-from">od</span> <strong>200 <span>RSD</span></strong> <span class="price-unit">/ m²</span></p>
+              <h3><a href="ciscenje-nakon-renoviranja.html">Čišćenje nakon renoviranja</a></h3>
+              <p class="service-price"><span class="price-from">od</span> <strong>2.800 <span>RSD</span></strong> <span class="price-unit">/ sat</span></p>
             </div>
-            <p class="price-description">Za stanove i kuće nakon krečenja, renoviranja ili građevinskih radova.</p>
-            <h4 class="included-title">Uključuje:</h4>
-            <ul class="price-includes">
-              <li>uklanjanje građevinske prašine</li>
-              <li>detaljno usisavanje</li>
-              <li>pranje podova</li>
-              <li>čišćenje površina</li>
-              <li>čišćenje kupatila i kuhinje</li>
-              <li>uklanjanje lakših tragova nakon radova</li>
-            </ul>
-            <p class="price-minimum"><strong>Minimalna cena: 7.000 RSD</strong></p>
-            <p class="price-detail">Za veoma zaprljane prostore cena se određuje nakon procene.</p>
+            <p class="price-description">Kad majstori odu, ostane prašina i tragovi radova. Mi to počistimo da stan opet bude za život.</p>
+            <p class="price-detail">Cena zavisi od veličine stana i sati rada.</p>
             <div class="pricingtable-footer"><a href="kontakt.html?usluga=renoviranje#zakazivanje" data-service="renoviranje" class="site-button radius-sm" aria-label="Zatraži procenu za čišćenje nakon renoviranja">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
           </div>
         </article>
       </div>
-      <div class="col-lg-4 col-md-6">
+      <div class="col-lg-6">
         <article id="cena-useljenje" class="pricingtable-wrapper pricingtable-style2" data-pricing-service="useljenje">
           <div class="pricingtable-inner">
             <div class="pricingtable-price">
-              <h3>Čišćenje pre useljenja / nakon iseljenja</h3>
-              <p class="service-price"><span class="price-from">od</span> <strong>180 <span>RSD</span></strong> <span class="price-unit">/ m²</span></p>
+              <h3><a href="ciscenje-useljenje-iseljenje.html">Čišćenje pre useljenja / nakon iseljenja</a></h3>
+              <p class="service-price"><span class="price-from">od</span> <strong>2.300 <span>RSD</span></strong> <span class="price-unit">/ sat</span></p>
             </div>
-            <p class="price-description">Kompletna priprema stana za novog stanara.</p>
-            <p class="price-minimum"><strong>Minimalna cena: 6.000 RSD</strong></p>
+            <p class="price-description">Stan spreman za nove stanare, ili uredan kad se iseljavate — bez prašine u ćoškovima.</p>
+            <p class="price-detail">Cena zavisi od veličine stana i sati rada.</p>
             <div class="pricingtable-footer"><a href="kontakt.html?usluga=useljenje#zakazivanje" data-service="useljenje" class="site-button radius-sm" aria-label="Zatraži procenu za čišćenje pre useljenja ili nakon iseljenja">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
-          </div>
-        </article>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <article id="cena-prozori" class="pricingtable-wrapper pricingtable-style2" data-pricing-service="prozori">
-          <div class="pricingtable-inner">
-            <div class="pricingtable-price">
-              <h3>Pranje prozora</h3>
-              <p class="service-price"><span class="price-from">od</span> <strong>250 <span>RSD</span></strong> <span class="price-unit">/ m² staklene površine</span></p>
-            </div>
-            <h4 class="included-title">Uključuje:</h4>
-            <ul class="price-includes"><li>staklo sa obe strane</li><li>okvire</li><li>dostupne klupice</li></ul>
-            <p class="price-minimum"><strong>Minimalna usluga: 2.500 RSD</strong></p>
-            <p class="price-detail">Teško dostupni prozori i uklanjanje tragova boje, lepka ili cementa obračunavaju se posebno.</p>
-            <div class="pricingtable-footer"><a href="kontakt.html?usluga=prozori#zakazivanje" data-service="prozori" class="site-button radius-sm" aria-label="Zatraži procenu za pranje prozora">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
           </div>
         </article>
       </div>
@@ -171,31 +148,32 @@
   <div class="container-fluid">
     <div class="section-head style1"><p class="section-kicker">Dodatna pažnja za vaš dom</p><h2 id="extras-title" class="title">Dodatne usluge</h2></div>
     <div class="extra-service-grid">
-      <article class="extra-service-card">
-        <img src="images/dodatne/rerna.webp" width="1152" height="864" alt="Čista rerna posle detaljnog čišćenja" loading="lazy" decoding="async">
-        <div><h3>Čišćenje rerne</h3><p class="extra-price">od 2.000 RSD</p></div>
-      </article>
-      <article class="extra-service-card">
-        <img src="images/dodatne/frizider.webp" width="1152" height="864" alt="Čist frižider iznutra" loading="lazy" decoding="async">
-        <div><h3>Čišćenje frižidera</h3><p class="extra-price">od 1.700 RSD</p></div>
+      <article id="cena-aparati" class="extra-service-card">
+        <img src="images/dodatne/rerna.webp" width="1152" height="864" alt="Čisti kuhinjski aparati i elementi" loading="lazy" decoding="async">
+        <div><h3><a href="kuhinjski-aparati-i-elementi.html">Kuhinjski aparati i elementi</a></h3><p class="extra-price">3.500 RSD</p></div>
       </article>
       <article class="extra-service-card">
         <img src="images/dodatne/elementi.webp" width="1152" height="864" alt="Očišćeni kuhinjski elementi iznutra" loading="lazy" decoding="async">
-        <div><h3>Čišćenje kuhinjskih elemenata iznutra</h3><p class="extra-price">od 2.500 RSD</p></div>
+        <div><h3><a href="ciscenje-kuhinjskih-elemenata-iznutra.html">Čišćenje kuhinjskih elemenata iznutra</a></h3><p class="extra-price">od 2.500 RSD</p></div>
       </article>
       <article class="extra-service-card">
         <img src="images/dodatne/terasa.webp" width="1152" height="864" alt="Čista terasa posle pranja" loading="lazy" decoding="async">
-        <div><h3>Detaljno čišćenje terase</h3><p class="extra-price">od 2.000 RSD</p></div>
+        <div><h3><a href="detaljno-ciscenje-terase.html">Detaljno čišćenje terase</a></h3><p class="extra-price">od 1.500 RSD / sat</p></div>
       </article>
       <article class="extra-service-card">
         <img src="images/dodatne/peglanje.webp" width="1152" height="864" alt="Peglanje veša" loading="lazy" decoding="async">
-        <div><h3>Peglanje</h3><p class="extra-price">1.500 RSD / sat</p></div>
+        <div><h3><a href="peglanje.html">Peglanje</a></h3><p class="extra-price">1.500 RSD / sat</p></div>
       </article>
       <article class="extra-service-card">
         <img src="images/dodatne/roletne.webp" width="1152" height="864" alt="Čiste roletne na prozoru" loading="lazy" decoding="async">
-        <div><h3>Pranje roletni</h3><p class="extra-price">od 1.000 RSD / prozor</p></div>
+        <div><h3><a href="pranje-roletni.html">Pranje roletni</a></h3><p class="extra-price">od 1.000 RSD / prozor</p></div>
+      </article>
+      <article id="cena-prozori" class="extra-service-card" data-pricing-service="prozori">
+        <img src="images/dodatne/prozori.webp" width="1280" height="720" alt="Čist prozor posle pranja stakla" loading="lazy" decoding="async">
+        <div><h3><a href="pranje-prozora.html">Pranje prozora</a></h3><p class="extra-price">700 RSD / prozor</p></div>
       </article>
     </div>
+    <p class="price-detail">Cena zavisi od veličine stana i sati rada.</p>
     <a class="site-button radius-sm" href="kontakt.html?usluga=ostalo#zakazivanje">Zatraži dodatnu uslugu <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
   </div>
 </section>
@@ -206,7 +184,7 @@
       <article class="business-service-card" id="cena-zgrade">
         <img src="images/poslovni/zgrade.webp" width="1280" height="720" alt="Čist hodnik stambene zgrade" loading="lazy" decoding="async">
         <div class="business-service-body">
-          <h3>Čišćenje zgrada</h3>
+          <h3><a href="ciscenje-zgrada.html">Čišćenje zgrada</a></h3>
           <p>Ulazi, hodnici, stepeništa i zajedničke prostorije.</p>
           <p class="extra-price">od 2.000 RSD / sat</p>
           <a class="site-button radius-sm" href="kontakt.html?usluga=zgrade#zakazivanje">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -215,7 +193,7 @@
       <article class="business-service-card" id="cena-poslovni">
         <img src="images/poslovni/poslovni.webp" width="1280" height="720" alt="Čist otvoreni poslovni prostor" loading="lazy" decoding="async">
         <div class="business-service-body">
-          <h3>Čišćenje poslovnog prostora</h3>
+          <h3><a href="ciscenje-poslovnog-prostora.html">Čišćenje poslovnog prostora</a></h3>
           <p>Kancelarije, open space i zajednički prostori firme.</p>
           <p class="extra-price">od 2.000 RSD / sat</p>
           <a class="site-button radius-sm" href="kontakt.html?usluga=poslovni#zakazivanje">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -224,13 +202,14 @@
       <article class="business-service-card" id="cena-ordinacije">
         <img src="images/poslovni/ordinacije.webp" width="1280" height="720" alt="Čista ordinacija spremna za prijem" loading="lazy" decoding="async">
         <div class="business-service-body">
-          <h3>Ordinacije i kancelarije</h3>
+          <h3><a href="ordinacije-i-kancelarije.html">Ordinacije i kancelarije</a></h3>
           <p>Higijensko čišćenje ordinacija, prijemnih i radnih prostorija.</p>
           <p class="extra-price">od 2.000 RSD / sat</p>
           <a class="site-button radius-sm" href="kontakt.html?usluga=ordinacije#zakazivanje">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         </div>
       </article>
     </div>
+    <p class="price-detail">Cena zavisi od veličine stana i sati rada.</p>
   </div>
 </section>
 <section class="section-full content-inner bg-white" aria-labelledby="maintenance-title">
@@ -249,7 +228,7 @@
 </div>
 <script defer src="js/site.config.js"></script>
 <script defer src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script defer src="js/custom.js"></script>
+<script defer src="js/custom.js?v=13"></script>
 <script defer src="js/service-comparison.js"></script>
 <script defer src="js/site.js"></script>
 <noscript><style>.rise-item{opacity:1!important;transform:none!important;transition:none!important}</style></noscript>
