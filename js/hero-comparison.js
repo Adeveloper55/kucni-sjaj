@@ -29,10 +29,18 @@
       return;
     }
     const area = root.getBoundingClientRect();
+    const desc = copy.querySelector('.hero-description');
+    const cta = copy.querySelector('.cta-actions');
+    if (desc && cta) {
+      const d = desc.getBoundingClientRect();
+      const c = cta.getBoundingClientRect();
+      const mid = (d.bottom + c.top) / 2 - area.top;
+      const hh = hand.offsetHeight || 100;
+      hand.style.top = Math.round(mid - hh / 2) + 'px';
+      return;
+    }
     const box = copy.getBoundingClientRect();
-    const top = Math.max(12, box.bottom - area.top + 18);
-    const limit = Math.max(12, area.height - 136 - 76);
-    hand.style.top = Math.min(top, limit) + 'px';
+    hand.style.top = Math.round(box.bottom - area.top + 12) + 'px';
   }
   function loadImage(image) {
     if (!image.getAttribute('src') && image.dataset.src) {
@@ -52,7 +60,11 @@
     root.dataset.phase = phase;
     root.dataset.paused = String(motionPaused || hidden || outside);
     scenes.forEach((scene, i) => scene.classList.toggle('is-active', i === index));
-    if (hand) hand.classList.toggle('is-wiping', phase === 'before' && ready && !motionPaused && !hidden && !outside);
+    if (hand) {
+      const show = ready && !motionPaused && !hidden && !outside && (phase === 'before' || phase === 'revealing' || narrow.matches);
+      hand.classList.toggle('is-wiping', phase === 'before' && ready && !motionPaused && !hidden && !outside);
+      hand.style.opacity = show || narrow.matches ? '1' : '';
+    }
     placeHand();
   }
   function paint(progress) {
