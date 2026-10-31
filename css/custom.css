@@ -52,7 +52,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .comparison-sweep { position: absolute; top: 0; bottom: 0; left: calc((1 - var(--clean-progress)) * 100%); width: 3px; background: #fff; box-shadow: 0 0 22px 7px #ffffff80; opacity: 0; }
 .home-page:not(.inner-page) .site-header .top-bar a { background: white; padding: 5px 10px; margin-top: -5px; border-radius: 4px; }
 .hero-visual[data-phase="revealing"] .is-active .comparison-sweep { opacity: .8; }
-.wipe-hand { position: absolute; z-index: 30; left: 62%; top: 46%; width: 156px; height: 156px; pointer-events: none; opacity: 0; filter: drop-shadow(0 14px 22px #07141e47); transform: translate(-50%, -46%); }
+.wipe-hand { position: absolute; z-index: 30; left: 62%; top: 46%; width: 176px; height: 176px; pointer-events: none; opacity: 0; filter: drop-shadow(0 8px 16px #07141e66); transform: translate(-50%, -46%); }
 .wipe-hand-stage, .wipe-hand-stage svg { width: 100%; height: 100%; display: block; }
 .wipe-hand.is-wiping { animation: wipe-swipe var(--wipe-ms, 2000ms) cubic-bezier(.42, 0, .22, 1) both; }
 @keyframes wipe-swipe {
