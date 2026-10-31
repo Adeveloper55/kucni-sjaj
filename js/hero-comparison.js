@@ -3,6 +3,18 @@
   'use strict';
   const root = document.getElementById('hero-comparison');
   if (!root) return;
+  const hand = root.querySelector('.wipe-hand');
+  const stage = hand && hand.querySelector('.wipe-hand-stage');
+  if (hand && stage && window.lottie) {
+    hand.style.setProperty('--wipe-ms', (Number(root.dataset.beforeDelay) || 2000) + 'ms');
+    window.lottie.loadAnimation({
+      container: stage,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'js/wipe-hand.json',
+    });
+  }
   const scenes = [...root.querySelectorAll('.comparison-scene')];
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const timings = { before: Number(root.dataset.beforeDelay), revealing: Number(root.dataset.revealDuration), after: Number(root.dataset.cleanHold), switching: 650 };
@@ -27,6 +39,7 @@
     root.dataset.phase = phase;
     root.dataset.paused = String(motionPaused || hidden || outside);
     scenes.forEach((scene, i) => scene.classList.toggle('is-active', i === index));
+    if (hand) hand.classList.toggle('is-wiping', phase === 'before' && ready && !motionPaused && !hidden && !outside);
   }
   function paint(progress) {
     scenes[index].style.setProperty('--clean-progress', String(progress));

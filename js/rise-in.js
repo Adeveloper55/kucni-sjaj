@@ -10,7 +10,7 @@
 
   const selector = [
     'h1', 'h2', 'h3', 'p', 'li', 'img', 'figcaption',
-    '.service-photo', '.dlab-content', '.services-style-3',
+    '.service-photo', '.dlab-content', '.step-card', '.services-style-3',
     '.moment-card', '.pricingtable-wrapper', '.faq-style2 .panel',
     '.cta-actions', '.trust-list'
   ].join(', ');
