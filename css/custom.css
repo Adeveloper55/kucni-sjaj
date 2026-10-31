@@ -64,13 +64,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   100% { opacity: 0; transform: translate(-50%, -46%) translateX(18px) rotate(2deg); }
 }
 @media (max-width: 991px) {
-  .hero-visual .wipe-hand { left: auto; right: 12px; top: auto; bottom: calc(96px + env(safe-area-inset-bottom, 0px)); width: 148px; height: 148px; transform: none; filter: drop-shadow(0 8px 18px #041018cc); }
+  .hero-visual .wipe-hand { left: 50%; right: auto; top: 54%; bottom: auto; width: 128px; height: 128px; transform: translateX(-50%); filter: drop-shadow(0 8px 18px #041018cc); }
   @keyframes wipe-swipe {
-    0% { opacity: 0; transform: translateX(-22px) rotate(-8deg); }
-    14% { opacity: 1; transform: translateX(-12px) rotate(-3deg); }
-    46% { opacity: 1; transform: translateX(20px) rotate(5deg); }
-    74% { opacity: 1; transform: translateX(-8px) rotate(-2deg); }
-    100% { opacity: 0; transform: translateX(12px) rotate(2deg); }
+    0% { opacity: 0; transform: translateX(calc(-50% - 22px)) rotate(-8deg); }
+    14% { opacity: 1; transform: translateX(calc(-50% - 12px)) rotate(-3deg); }
+    46% { opacity: 1; transform: translateX(calc(-50% + 20px)) rotate(5deg); }
+    74% { opacity: 1; transform: translateX(calc(-50% - 8px)) rotate(-2deg); }
+    100% { opacity: 0; transform: translateX(calc(-50% + 12px)) rotate(2deg); }
   }
 }
 @media (prefers-reduced-motion: reduce) { .wipe-hand { display: none; } }
@@ -413,8 +413,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .close-menu { position: static; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; background: #f6f1e6; color: var(--dom-navy); -webkit-tap-highlight-color: transparent; }
   .site-header .menu-booking { display: flex; margin-top: 24px; color: white; }
   .hero-section, .hero-section .main-slider { min-height: 100svh; }
-  .hero-copy { top: 190px; left: 30px; width: min(610px, calc(100% - 60px)); padding: 40px; }
-  .hero-copy h1 { font-size: 52px; }
+  .hero-copy { top: 150px; left: 24px; width: min(520px, calc(100% - 48px)); padding: 28px 24px 22px; }
+  .hero-copy h1 { font-size: 40px; }
   .trust-list { justify-content: center; font-size: 16px; gap: 16px 28px; }
   .benefits-section .faq-area2 { flex-direction: column-reverse; gap: 32px; }
   .benefits-photo { width: 100%; max-height: 480px; object-position: center 35%; }
@@ -428,12 +428,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 767px) {
   .home-page { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
   .hero-section, .hero-section .main-slider { min-height: 100svh; }
-  .hero-copy { top: 172px; left: 15px; width: calc(100% - 30px); padding: 30px 24px; border-bottom-right-radius: 45px; }
-  .hero-copy h1 { font-size: clamp(35px, 7.8vw, 50px); line-height: 1.1; letter-spacing: -.7px; margin-bottom: 18px; }
-  .hero-eyebrow { font-size: 11px; letter-spacing: .5px; }
-  .hero-description { font-size: 16px; line-height: 1.65; margin-bottom: 22px; }
-  .hero-copy .cta-actions { gap: 10px; }
-  .hero-copy .site-button, .hero-copy .call-button { font-size: 14px; padding: 12px 15px; }
+  .hero-copy { top: 104px; left: 14px; width: calc(100% - 28px); padding: 16px 16px 14px; border-bottom-right-radius: 28px; }
+  .hero-copy h1 { font-size: clamp(24px, 6.6vw, 32px); line-height: 1.12; letter-spacing: -.5px; margin-bottom: 8px; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: .5px; margin-bottom: 8px; }
+  .hero-description { font-size: 14px; line-height: 1.45; margin-bottom: 12px; }
+  .hero-copy .cta-actions { gap: 8px; }
+  .hero-copy .site-button, .hero-copy .call-button { font-size: 13px; padding: 10px 12px; min-height: 44px; }
   .hero-copy .contact-pending { font-size: 11px; }
   .value-strip.call-action.style1 { padding: 24px 0; }
   .trust-list { display: grid; gap: 10px; font-size: 15px; justify-content: start; }

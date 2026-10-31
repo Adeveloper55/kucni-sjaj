@@ -21,6 +21,19 @@
   let index = 0, phase = 'before', elapsed = 0, start = 0, frame, arming = false;
   let motionPaused = motion.matches, hidden = document.hidden, ready = false, outside = false;
   const narrow = window.matchMedia('(max-width: 991px)');
+  const copy = document.querySelector('.hero-copy');
+  function placeHand() {
+    if (!hand) return;
+    if (!copy || !narrow.matches) {
+      hand.style.removeProperty('top');
+      return;
+    }
+    const area = root.getBoundingClientRect();
+    const box = copy.getBoundingClientRect();
+    const top = Math.max(12, box.bottom - area.top + 18);
+    const limit = Math.max(12, area.height - 136 - 76);
+    hand.style.top = Math.min(top, limit) + 'px';
+  }
   function loadImage(image) {
     if (!image.getAttribute('src') && image.dataset.src) {
       image.src = narrow.matches && image.dataset.srcSmall ? image.dataset.srcSmall : image.dataset.src;
@@ -40,6 +53,7 @@
     root.dataset.paused = String(motionPaused || hidden || outside);
     scenes.forEach((scene, i) => scene.classList.toggle('is-active', i === index));
     if (hand) hand.classList.toggle('is-wiping', phase === 'before' && ready && !motionPaused && !hidden && !outside);
+    placeHand();
   }
   function paint(progress) {
     scenes[index].style.setProperty('--clean-progress', String(progress));
@@ -86,6 +100,8 @@
   }
   document.addEventListener('visibilitychange', () => { hidden = document.hidden; schedule(); });
   motion.addEventListener('change', event => { motionPaused = event.matches; schedule(); });
+  window.addEventListener('resize', placeHand);
+  narrow.addEventListener('change', placeHand);
   new IntersectionObserver(entries => {
     outside = !entries[0].isIntersecting;
     schedule();
