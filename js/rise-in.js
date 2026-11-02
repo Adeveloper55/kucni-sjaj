@@ -12,7 +12,7 @@
     'h1', 'h2', 'h3', 'p', 'li', 'img', 'figcaption',
     '.service-photo', '.dlab-content', '.step-card', '.services-style-3',
     '.moment-card', '.pricingtable-wrapper', '.faq-style2 .panel',
-    '.cta-actions', '.hero-service-btn'
+    '.cta-actions', '.trust-list', '.business-service-card'
   ].join(', ');
 
   function leaveAlone(node) {
