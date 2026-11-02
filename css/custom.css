@@ -457,7 +457,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .business-pricing .section-head.style1 p:not(.section-kicker) { color: #cedee9; }
 .business-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .business-service-card { overflow: hidden; border: 1px solid #c8e5ff2e; border-radius: 18px; background: linear-gradient(155deg, #77c2ea18, #ffffff00 50%), #1c4058a6; box-shadow: 0 18px 40px #03172740; }
-.business-service-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.business-service-photo { display: block; overflow: hidden; }
+.business-service-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform .45s ease; }
+.business-service-photo:hover img,
+.business-service-photo:focus-visible img { transform: scale(1.04); }
 .business-service-body { display: flex; flex-direction: column; gap: 10px; padding: 22px 20px 24px; }
 .business-service-body h3 { margin: 0; color: #f5f9fc; font-size: 22px; font-weight: 600; }
 .business-service-body p { margin: 0; color: #d5e3ea; font-size: 15px; line-height: 1.55; }
