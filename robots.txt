@@ -5,4 +5,4 @@ Disallow: /docs/
 Disallow: /scripts/
 Disallow: /content/
 Disallow: /partials/
-Sitemap: https://kucnisjaj.audaxtestsajt.com/sitemap.xml
+Sitemap: https://ciscenjeubeogradu.com/sitemap.xml

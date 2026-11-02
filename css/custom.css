@@ -1001,26 +1001,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
 
-/* Logo: kuća + Kućni Sjaj (bez ugrađenog slogana). */
+/* Logo: Čišćenje u Beogradu (široki horizontalni mark). */
 .site-header .logo-header .brand-logo {
   display: block;
-  width: 200px;
-  height: 152px;
+  width: 260px;
+  height: 81px;
   max-width: none;
   object-fit: contain;
-  object-position: center;
+  object-position: left center;
   overflow: visible;
 }
-.home-footer .brand-logo { display: block; width: 260px; height: 198px; object-fit: contain; }
+.home-footer .brand-logo { display: block; width: 300px; height: 94px; object-fit: contain; object-position: left center; }
 @media (max-width: 991px) {
-  .site-header .logo-header .brand-logo { width: 160px; height: 122px; }
+  .site-header .logo-header .brand-logo { width: 200px; height: 63px; }
 }
 
 /* Sitni slogan ostaje uklonjen — samo marka. */
 .brand-logo-wrap { display: inline-flex; align-items: center; overflow: visible; }
 .brand-logo-caption { display: none !important; }
-.site-header .logo-header .brand-mark > .brand-logo-wrap { display: inline-flex; align-items: center; width: 200px; }
-@media (max-width: 991px) { .site-header .logo-header .brand-mark > .brand-logo-wrap { width: 160px; } }
+.site-header .logo-header .brand-mark > .brand-logo-wrap { display: inline-flex; align-items: center; width: 260px; }
+@media (max-width: 991px) { .site-header .logo-header .brand-mark > .brand-logo-wrap { width: 200px; } }
 
 /* Usluge na početnoj: staklo, dubina i diskretno svetlo. */
 .premium-services { background: radial-gradient(ellipse at 50% 0, #315f765c, transparent 65%), #102938; }
