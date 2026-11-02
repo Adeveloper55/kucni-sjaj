@@ -296,11 +296,59 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .call-button { min-height: 48px; background: transparent; color: var(--dom-navy); padding: 12px 18px; border: 1px solid #6c82aa; border-radius: 4px; font-weight: 500; }
 .call-button:disabled { color: #5a6576; border-color: #a6b1c2; cursor: not-allowed; }
 .contact-pending { color: #576374; font-size: 12px; margin: 12px 0 0; line-height: 1.5; }
-.value-strip.call-action.style1 { padding: 28px 0; overflow: hidden; }
-.trust-list { display: flex; gap: 34px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; color: white; font-size: 17px; }
-.trust-list i { color: var(--dom-yellow); margin-right: 8px; }
-.value-strip .img-box { height: 54px; position: relative; }
-.value-strip .img-box img { width: 155px; position: absolute; top: -76px; right: 30px; }
+.value-strip.call-action.style1 { padding: 22px 0; overflow: hidden; }
+.hero-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.hero-service-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 118px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .07);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(4, 16, 24, .18);
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.hero-service-btn:hover,
+.hero-service-btn:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, .14);
+  border-color: rgba(210, 181, 122, .85);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(4, 16, 24, .28);
+  outline: none;
+}
+.hero-service-title {
+  display: block;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -.2px;
+  color: #fff;
+}
+.hero-service-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--dom-yellow);
+  color: var(--dom-navy);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: background-color .2s ease, color .2s ease;
+}
+.hero-service-btn:hover .hero-service-cta,
+.hero-service-btn:focus-visible .hero-service-cta {
+  background: #e4cf9f;
+}
 .service-grid { position: relative; z-index: 1; align-items: stretch; }
 .service-grid > div { display: flex; margin-bottom: 30px; }
 .service-grid .services-style-2 { width: 100%; margin: 0; padding: 32px; }
@@ -939,7 +987,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero-copy .hero-description { margin-bottom: 0; }
   .hero-copy .cta-actions { margin-top: auto; padding-top: 12px; }
   .hero-copy h1 { font-size: 40px; }
-  .trust-list { justify-content: center; font-size: 16px; gap: 16px 28px; }
+  .hero-service-grid { grid-template-columns: 1fr; gap: 10px; }
+  .hero-service-btn {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 0;
+    padding: 14px 16px;
+  }
+  .hero-service-title { font-size: 16px; flex: 1 1 auto; }
+  .hero-service-cta { flex: 0 0 auto; min-height: 40px; padding: 9px 12px; font-size: 13px; }
   .benefits-section .faq-area2 { flex-direction: column-reverse; gap: 32px; }
   .benefits-photo { width: 100%; max-height: 480px; object-position: center 35%; }
   .steps-grid { row-gap: 22px; }
@@ -974,8 +1032,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero-copy .cta-actions { gap: 8px; margin-top: auto; padding-top: 10px; }
   .hero-copy .site-button, .hero-copy .call-button { font-size: 13px; padding: 10px 12px; min-height: 44px; }
   .hero-copy .contact-pending { font-size: 11px; }
-  .value-strip.call-action.style1 { padding: 24px 0; }
-  .trust-list { display: grid; gap: 10px; font-size: 15px; justify-content: start; }
+  .value-strip.call-action.style1 { padding: 16px 0; }
+  .hero-service-btn { padding: 12px 14px; border-radius: 10px; }
+  .hero-service-title { font-size: 15px; }
+  .hero-service-cta { padding: 8px 10px; font-size: 12px; gap: 6px; }
   .service-grid .services-style-2 { padding: 28px; }
   .service-grid .dlab-tilte { min-height: 0; font-size: 24px; }
   .section-head { margin-bottom: 30px; }
