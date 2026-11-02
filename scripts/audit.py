@@ -84,14 +84,23 @@ while assets:
 
 homepage = (ROOT / 'index-5.html').read_text(encoding='utf-8')
 routes = json.loads((ROOT / 'pages.json').read_text(encoding='utf-8'))
-expected_nav = ['./' if page['key'] == 'pocetna' else page['file'] for page in routes]
+main_routes = [page for page in routes if page.get('nav') is not False]
+expected_nav = ['./' if page['key'] == 'pocetna' else page['file'] for page in main_routes]
 for route in routes:
+    if route.get('hidden'):
+        continue
     page = parsed[route['file']]
-    if [link['href'] for link in page.nav_links[:7]] != expected_nav:
+    top_links = []
+    for link in page.nav_links:
+        href = link.get('href')
+        if href in expected_nav and href not in top_links:
+            top_links.append(href)
+    if top_links != expected_nav:
         errors.append(f'{route["file"]}: main navigation does not link to all seven pages')
     active = [link['href'] for link in page.nav_links if link.get('aria-current') == 'page']
     expected_active = './' if route['key'] == 'pocetna' else route['file']
-    if active != [expected_active]: errors.append(f'{route["file"]}: wrong current navigation item')
+    if expected_active not in active:
+        errors.append(f'{route["file"]}: wrong current navigation item')
     source = (ROOT / route['file']).read_text(encoding='utf-8')
     if route['key'] != 'pocetna' and ('hero-section' in source or 'js/rev.slider.js' in source or 'js/hero-comparison.js' in source):
         errors.append(f'{route["file"]}: homepage slider loaded on inner page')

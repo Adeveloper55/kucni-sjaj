@@ -189,6 +189,7 @@
     "label": "Dubinsko pranje nameštaja",
     "nav": false,
     "landing": true,
+    "hidden": true,
     "parent": "usluge",
     "title": "Dubinsko pranje nameštaja Beograd | Kućni Sjaj",
     "description": "Dubinsko pranje nameštaja u Beogradu — garniture, dušeci, itison. Od 1.000 RSD po komadu. Pogledajte ceo cenovnik.",

@@ -120,7 +120,7 @@ function buildNavigation(page) {
   return pages.filter(item => item.nav !== false).map(item => {
     const current = item.key === page.key;
     const ancestor = page.parent === item.key;
-    const kids = childrenByParent[item.key] || [];
+    const kids = (childrenByParent[item.key] || []).filter(child => !child.hidden);
     if (!kids.length) {
       return `<li><a href="${destinations[item.key]}"${navLinkAttrs(current, ancestor)}>${escape(item.label)}</a></li>`;
     }
@@ -152,8 +152,9 @@ for (const page of [...pages, ...legal]) {
   if (config.PHONE_NUMBER) schema.telephone = config.PHONE_NUMBER;
   if (config.EMAIL_ADDRESS) schema.email = config.EMAIL_ADDRESS;
   if (siteURL) schema.url = siteURL;
-  const schemaTag = page.noindex ? '' : `<script type="application/ld+json" id="business-schema">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`;
-  const seo = (page.noindex ? '<meta name="robots" content="noindex,follow">\n' : '') + (canonical ? `<link rel="canonical" href="${escape(canonical)}">\n<meta property="og:url" content="${escape(canonical)}">\n<meta property="og:image" content="${escape(new URL('images/og-share.jpg', siteURL).href)}">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="${escape(new URL('images/og-share.jpg', siteURL).href)}">` : '<!-- TODO SITE_URL: canonical / og:url / sitemap await the confirmed production domain. -->');
+  const noindex = page.noindex || page.hidden;
+  const schemaTag = noindex ? '' : `<script type="application/ld+json" id="business-schema">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>`;
+  const seo = (noindex ? '<meta name="robots" content="noindex,follow">\n' : '') + (canonical ? `<link rel="canonical" href="${escape(canonical)}">\n<meta property="og:url" content="${escape(canonical)}">\n<meta property="og:image" content="${escape(new URL('images/og-share.jpg', siteURL).href)}">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="${escape(new URL('images/og-share.jpg', siteURL).href)}">` : '<!-- TODO SITE_URL: canonical / og:url / sitemap await the confirmed production domain. -->');
   const sliderHead = home ? '<link rel="preload" as="image" href="images/hero-comparison/stan-prljav-1100.webp" media="(max-width: 991px)" fetchpriority="high"><link rel="preload" as="image" href="images/hero-comparison/stan-prljav.webp" media="(min-width: 992px)" fetchpriority="high">' : '';
   const banner = home ? '' : pageBanner(page, config);
   let html = template(head, { title: escape(page.title), description: escape(page.description), schema: schemaTag, seo, sliderHead });
@@ -169,7 +170,7 @@ for (const page of [...pages, ...legal]) {
   if (home) await writeFile(path.join(root, 'index.html'), html);
 }
 if (siteURL) {
-  const urls = [...pages, ...legal].map(page => `<url><loc>${escape(new URL(page.key === 'pocetna' ? './' : page.file, siteURL).href)}</loc></url>`).join('\n');
+  const urls = [...pages, ...legal].filter(page => !page.hidden && !page.noindex).map(page => `<url><loc>${escape(new URL(page.key === 'pocetna' ? './' : page.file, siteURL).href)}</loc></url>`).join('\n');
   await writeFile(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
   await writeFile(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /.template-backup/\nDisallow: /docs/\nDisallow: /scripts/\nDisallow: /content/\nDisallow: /partials/\nSitemap: ${new URL('sitemap.xml', siteURL).href}\n`);
 } else await writeFile(path.join(root, 'robots.txt'), '# Lokalna priprema: produkcioni domen nije podešen.\nUser-agent: *\nDisallow: /\n');
