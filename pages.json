@@ -239,14 +239,14 @@
     "nav": false,
     "landing": true,
     "parent": "usluge",
-    "title": "Čišćenje zgrada Beograd | Ulazi i hodnici",
-    "description": "Čišćenje zgrada u Beogradu — ulazi, hodnici, stepeništa i zajedničke prostorije. Od 2.000 RSD/sat, termin po dogovoru.",
-    "intro": "Ulaz i stepenište su prvi utisak za stanare i goste. Držimo zajedničke prostorije urednim, u terminu koji odgovara zgradi.",
-    "priceNote": "Početna cena: od 2.000 RSD / sat.",
+    "title": "Čišćenje zgrada Beograd | Ulazi, hodnici i stepeništa",
+    "description": "Čišćenje zgrada u Beogradu: ulazi, hodnici, stepeništa i zajedničke prostorije. Od 1.500 RSD/sat, termin po dogovoru sa upravnikom.",
+    "intro": "Ulaz, hodnik i stepenište su prva stvar koju stanari i gosti vide. Držimo zajedničke prostorije urednim — u terminu koji dogovorimo sa zgradom.",
+    "priceNote": "Od 1.500 RSD / sat.",
     "image": "images/poslovni/zgrade.webp",
     "imageWidth": 1280,
     "imageHeight": 720,
-    "imageAlt": "Čist hodnik stambene zgrade"
+    "imageAlt": "Običan hodnik stambene zgrade sa sandučićima i stepeništem"
   },
   {
     "key": "ciscenje-poslovnog-prostora",
@@ -255,14 +255,14 @@
     "nav": false,
     "landing": true,
     "parent": "usluge",
-    "title": "Čišćenje poslovnog prostora Beograd | Čišćenje u Beogradu",
-    "description": "Čišćenje kancelarija i poslovnog prostora u Beogradu. Od 2.000 RSD/sat — open space, sobe i zajednički prostori firme.",
-    "intro": "Radni dan bolje ide u prostoru koji nije zagušen prašinom i tragovima kafice. Kancelarije, open space i zajedničke sobe — obim i termin pre dolaska.",
-    "priceNote": "Početna cena: od 2.000 RSD / sat.",
+    "title": "Čišćenje poslovnog prostora Beograd | Kancelarije i open space",
+    "description": "Čišćenje kancelarija i poslovnog prostora u Beogradu. Od 1.500 RSD/sat — open space, sobe, kuhinjica i zajednički prostori firme.",
+    "intro": "Radni dan ide lakše u prostoru koji nije zagušen prašinom i tragovima kafice. Kancelarije, open space i zajedničke sobe — obim i termin dogovaramo pre dolaska.",
+    "priceNote": "Od 1.500 RSD / sat.",
     "image": "images/poslovni/poslovni.webp",
     "imageWidth": 1280,
     "imageHeight": 720,
-    "imageAlt": "Čist otvoreni poslovni prostor"
+    "imageAlt": "Uredan open space poslovnog prostora"
   },
   {
     "key": "ordinacije-i-kancelarije",
@@ -271,13 +271,13 @@
     "nav": false,
     "landing": true,
     "parent": "usluge",
-    "title": "Čišćenje ordinacija i kancelarija Beograd",
-    "description": "Higijensko čišćenje ordinacija, prijemnih i kancelarija u Beogradu. Od 2.000 RSD/sat, pažljivo i po dogovoru o obimu.",
-    "intro": "Ordinacija i prijemna traže miran, uredan prostor pre prvog termina. Čistimo pažljivo — površine koje se diraju, hodnici i radne sobe, kako dogovorimo.",
-    "priceNote": "Početna cena: od 2.000 RSD / sat.",
+    "title": "Čišćenje ordinacija i kancelarija Beograd | Prijemne",
+    "description": "Higijensko čišćenje ordinacija, prijemnih i kancelarija u Beogradu. Od 1.500 RSD/sat — pre ili posle radnog vremena, po dogovoru.",
+    "intro": "Pacijent i klijent prvo vide prijemnu. Čistimo pažljivo — površine koje se diraju, podovi i radne sobe — u terminu pre ili posle radnog vremena.",
+    "priceNote": "Od 1.500 RSD / sat.",
     "image": "images/poslovni/ordinacije.webp",
     "imageWidth": 1280,
     "imageHeight": 720,
-    "imageAlt": "Čista ordinacija spremna za prijem"
+    "imageAlt": "Uredna prijemna ordinacije spremna za pacijente"
   }
 ]

@@ -81,6 +81,53 @@ function pageBanner(page, config) {
   const phone = escape(config.PHONE_NUMBER || '');
   const tel = String(config.PHONE_NUMBER || '').replace(/[^\d+]/g, '');
   if (page.landing) {
+    const serviceHeroes = {
+      'ciscenje-zgrada': {
+        img: 'images/poslovni/zgrade.webp',
+        cache: '2',
+        crumb: 'Čišćenje zgrada',
+        kicker: 'Za upravnike i stanare',
+        title: 'Čišćenje zgrada u Beogradu',
+        lead: 'Ulaz, hodnik i stepenište su prva stvar koju stanari i gosti vide. Držimo zajedničke prostorije urednim — u terminu koji dogovorimo sa zgradom.',
+        service: 'zgrade',
+      },
+      'ciscenje-poslovnog-prostora': {
+        img: 'images/poslovni/poslovni.webp',
+        cache: '1',
+        crumb: 'Čišćenje poslovnog prostora',
+        kicker: 'Za firme i kancelarije',
+        title: 'Čišćenje poslovnog prostora u Beogradu',
+        lead: 'Radni dan ide lakše u prostoru koji nije zagušen prašinom i tragovima kafice. Kancelarije, open space i zajedničke sobe — obim i termin dogovaramo pre dolaska.',
+        service: 'poslovni',
+      },
+      'ordinacije-i-kancelarije': {
+        img: 'images/poslovni/ordinacije.webp',
+        cache: '1',
+        crumb: 'Ordinacije i kancelarije',
+        kicker: 'Za ordinacije i prijemne',
+        title: 'Čišćenje ordinacija i kancelarija',
+        lead: 'Pacijent i klijent prvo vide prijemnu. Čistimo pažljivo — površine koje se diraju, podovi i radne sobe — u terminu pre ili posle radnog vremena.',
+        service: 'ordinacije',
+      },
+    };
+    if (serviceHeroes[page.key]) {
+      const hero = serviceHeroes[page.key];
+      const img = page.image || hero.img;
+      const width = page.imageWidth || 1280;
+      const height = page.imageHeight || 720;
+      return `<section class="service-hero" aria-labelledby="page-title">
+  <div class="service-hero-media" aria-hidden="true"><img src="${escape(img)}?v=${hero.cache}" width="${width}" height="${height}" alt="" decoding="async" fetchpriority="high"></div>
+  <div class="service-hero-shade" aria-hidden="true"></div>
+  <div class="container-fluid service-hero-inner">
+    <nav aria-label="Putanja stranice"><ol class="breadcrumbs"><li><a href="./">Početna</a></li><li><a href="usluge.html">Usluge</a></li><li aria-current="page">${escape(hero.crumb)}</li></ol></nav>
+    <p class="service-hero-kicker">${escape(hero.kicker)}</p>
+    <h1 id="page-title">${escape(hero.title)}</h1>
+    <p class="service-hero-lead">${escape(hero.lead)}</p>
+    <p class="service-hero-price">Od 1.500 RSD / sat</p>
+    <div class="cta-actions"><a class="site-button button-md radius-sm" href="kontakt.html?usluga=${escape(hero.service)}#zakazivanje">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a><a class="call-button call-button-light" data-contact="phone" href="tel:${tel}">Pozovi</a></div>
+  </div>
+</section>`;
+    }
     const head = crumbs(page.label, {
       h1: page.h1 || page.label,
       parent: { href: 'usluge.html', label: 'Usluge' },
