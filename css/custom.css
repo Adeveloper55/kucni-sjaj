@@ -67,12 +67,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .header-nav.xmenu .nav > li.nav-dropdown .nav-dropdown-trigger {
   display: inline-flex;
-  align-items: center;
+  align-items: stretch;
   max-width: 100%;
-  vertical-align: middle;
+  vertical-align: top;
 }
 .header-nav.xmenu .nav > li.nav-dropdown .nav-dropdown-trigger > a {
   flex: 0 1 auto;
+  display: inline-flex;
+  align-items: center;
+  line-height: 24px;
   padding-right: 4px !important;
 }
 .header-nav.xmenu .nav > li.nav-dropdown .nav-dropdown-toggle {
@@ -80,12 +83,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
+  align-self: stretch;
   width: 34px;
-  height: 34px;
-  margin: 0 4px 0 0;
+  height: auto;
+  min-height: 0;
+  margin: 0;
   padding: 0;
   border: 0;
-  border-radius: 10px;
+  border-radius: 0;
   background: transparent;
   color: inherit;
   line-height: 1;
@@ -173,14 +178,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   letter-spacing: -.1px;
 }
 @media (min-width: 992px) {
-  /* One white tab for label + chevron (theme styles only match li > a) */
+  /* One white tab for label + chevron — same height as sibling nav links */
   .header-style-6 .header-nav.xmenu .nav > li.nav-dropdown .nav-dropdown-trigger {
     background-color: #fff;
     color: #000;
+    border-right: 1px solid rgba(0, 0, 0, .1);
   }
   .header-style-6 .header-nav.xmenu .nav > li.nav-dropdown .nav-dropdown-trigger > a {
     background-color: transparent !important;
     color: inherit;
+    line-height: 24px;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
   }
   .header-nav.xmenu .nav > li.nav-dropdown .nav-dropdown-toggle:hover,
   .header-nav.xmenu .nav > li.nav-dropdown .nav-dropdown-toggle:focus-visible {
