@@ -90,6 +90,7 @@ function pageBanner(page, config) {
         title: 'Čišćenje zgrada u Beogradu',
         lead: 'Ulaz, hodnik i stepenište su prva stvar koju stanari i gosti vide. Držimo zajedničke prostorije urednim — u terminu koji dogovorimo sa zgradom.',
         service: 'zgrade',
+        price: 'Od 1.500 RSD / sat',
       },
       'ciscenje-poslovnog-prostora': {
         img: 'images/poslovni/poslovni.webp',
@@ -99,6 +100,7 @@ function pageBanner(page, config) {
         title: 'Čišćenje poslovnog prostora u Beogradu',
         lead: 'Radni dan ide lakše u prostoru koji nije zagušen prašinom i tragovima kafice. Kancelarije, open space i zajedničke sobe — obim i termin dogovaramo pre dolaska.',
         service: 'poslovni',
+        price: 'Od 1.500 RSD / sat',
       },
       'ordinacije-i-kancelarije': {
         img: 'images/poslovni/ordinacije.webp',
@@ -108,6 +110,27 @@ function pageBanner(page, config) {
         title: 'Čišćenje ordinacija i kancelarija',
         lead: 'Pacijent i klijent prvo vide prijemnu. Čistimo pažljivo — površine koje se diraju, podovi i radne sobe — u terminu pre ili posle radnog vremena.',
         service: 'ordinacije',
+        price: 'Od 1.500 RSD / sat',
+      },
+      'ciscenje-podruma': {
+        img: 'images/poslovni/podrum.webp',
+        cache: '1',
+        crumb: 'Čišćenje podruma',
+        kicker: 'Za stanove, kuće i zgrade',
+        title: 'Čišćenje podruma u Beogradu',
+        lead: 'Podrum ne mora da ostane skladište prašine. Čistimo podove i dostupne površine da prostor opet bude upotrebljiv.',
+        service: 'podrum',
+        price: 'Od 1.500 RSD / sat',
+      },
+      'odnosenje-suta': {
+        img: 'images/poslovni/sut.webp',
+        cache: '1',
+        crumb: 'Odnošenje šuta',
+        kicker: 'Posle renoviranja i radova',
+        title: 'Odnošenje šuta u Beogradu',
+        lead: 'Šut i građevinski otpad sklanjamo sa adrese — utovar i odvoz po dogovoru o količini i pristupu.',
+        service: 'sut',
+        price: 'Cena po dogovoru',
       },
     };
     if (serviceHeroes[page.key]) {
@@ -115,6 +138,7 @@ function pageBanner(page, config) {
       const img = page.image || hero.img;
       const width = page.imageWidth || 1280;
       const height = page.imageHeight || 720;
+      const price = hero.price || 'Od 1.500 RSD / sat';
       return `<section class="service-hero" aria-labelledby="page-title">
   <div class="service-hero-media" aria-hidden="true"><img src="${escape(img)}?v=${hero.cache}" width="${width}" height="${height}" alt="" decoding="async" fetchpriority="high"></div>
   <div class="service-hero-shade" aria-hidden="true"></div>
@@ -123,7 +147,7 @@ function pageBanner(page, config) {
     <p class="service-hero-kicker">${escape(hero.kicker)}</p>
     <h1 id="page-title">${escape(hero.title)}</h1>
     <p class="service-hero-lead">${escape(hero.lead)}</p>
-    <p class="service-hero-price">Od 1.500 RSD / sat</p>
+    <p class="service-hero-price">${escape(price)}</p>
     <div class="cta-actions"><a class="site-button button-md radius-sm" href="kontakt.html?usluga=${escape(hero.service)}#zakazivanje">Zatraži procenu <i class="fa fa-arrow-right" aria-hidden="true"></i></a><a class="call-button call-button-light" data-contact="phone" href="tel:${tel}">Pozovi</a></div>
   </div>
 </section>`;

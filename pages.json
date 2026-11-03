@@ -279,5 +279,37 @@
     "imageWidth": 1280,
     "imageHeight": 720,
     "imageAlt": "Uredna prijemna ordinacije spremna za pacijente"
+  },
+  {
+    "key": "ciscenje-podruma",
+    "file": "ciscenje-podruma.html",
+    "label": "Čišćenje podruma",
+    "nav": false,
+    "landing": true,
+    "parent": "usluge",
+    "title": "Čišćenje podruma Beograd | Podrumi i ostave",
+    "description": "Čišćenje podruma u Beogradu — prašina, podovi i dostupne površine. Od 1.500 RSD/sat, obim i cena pre dolaska.",
+    "intro": "Podrum ne mora da ostane skladište prašine. Čistimo podove i dostupne površine da prostor opet bude upotrebljiv.",
+    "priceNote": "Od 1.500 RSD / sat.",
+    "image": "images/poslovni/podrum.webp",
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "imageAlt": "Uredan podrum posle čišćenja"
+  },
+  {
+    "key": "odnosenje-suta",
+    "file": "odnosenje-suta.html",
+    "label": "Odnošenje šuta",
+    "nav": false,
+    "landing": true,
+    "parent": "usluge",
+    "title": "Odnošenje šuta Beograd | Građevinski otpad",
+    "description": "Odnošenje šuta i građevinskog otpada u Beogradu. Cena po dogovoru — količina, sprat i pristup pre dolaska.",
+    "intro": "Šut i građevinski otpad sklanjamo sa adrese — utovar i odvoz po dogovoru o količini i pristupu.",
+    "priceNote": "Cena po dogovoru.",
+    "image": "images/poslovni/sut.webp",
+    "imageWidth": 1280,
+    "imageHeight": 720,
+    "imageAlt": "Prostor spreman posle odnošenja šuta"
   }
 ]

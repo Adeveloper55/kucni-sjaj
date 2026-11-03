@@ -464,7 +464,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .business-pricing .section-head h2 { color: #fff; }
 .business-pricing .section-head .section-kicker { color: #e0c68f; }
 .business-pricing .section-head.style1 p:not(.section-kicker) { color: #cedee9; }
-.business-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.business-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.business-service-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 920px; margin-inline: auto; }
+.business-pricing-follow { padding-top: 0; }
+.business-pricing-follow .section-head { margin-top: 8px; }
 .business-service-card { overflow: hidden; border: 1px solid #c8e5ff2e; border-radius: 18px; background: linear-gradient(155deg, #77c2ea18, #ffffff00 50%), #1c4058a6; box-shadow: 0 18px 40px #03172740; }
 .business-service-photo { display: block; overflow: hidden; }
 .business-service-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform .45s ease; }
@@ -478,7 +481,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .pricing-extras > .container-fluid > .site-button { background: var(--dom-gold); color: #132d40; border-radius: 8px; }
 @media (max-width: 991px) {
   .extra-service-grid { grid-template-columns: 1fr 1fr; }
-  .business-service-grid { grid-template-columns: 1fr; }
+  .business-service-grid,
+  .business-service-grid-2 { grid-template-columns: 1fr; }
 }
 .maintenance-offer { display: flex; align-items: center; justify-content: space-between; gap: 36px; padding: 36px; border: 1px solid #c8e5ff38; border-left: 4px solid var(--dom-gold); border-radius: 16px; background: linear-gradient(125deg, #396783ee, #193d54f5); box-shadow: 0 14px 42px #1733441a; }
 .maintenance-offer > div { max-width: 740px; }
@@ -499,7 +503,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .extra-prices dt { flex-basis: 100%; }
   .extra-service-grid { grid-template-columns: 1fr; gap: 14px; }
   .extra-service-card h3 { font-size: 17px; }
-  .business-service-grid { grid-template-columns: 1fr; }
+  .business-service-grid,
+  .business-service-grid-2 { grid-template-columns: 1fr; }
   .business-service-body h3 { font-size: 20px; }
   .maintenance-offer { padding: 24px; gap: 22px; }
   .maintenance-offer .site-button { width: 100%; }
