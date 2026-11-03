@@ -128,9 +128,9 @@ function pageBanner(page, config) {
         crumb: 'Odnošenje šuta',
         kicker: 'Posle renoviranja i radova',
         title: 'Odnošenje šuta u Beogradu',
-        lead: 'Šut i građevinski otpad sklanjamo sa adrese — utovar i odvoz po dogovoru o količini i pristupu.',
+        lead: 'Šut i građevinski otpad sklanjamo sa adrese — utovar i odvoz, 600 RSD po džaku.',
         service: 'sut',
-        price: 'Cena po dogovoru',
+        price: '600 RSD / džak',
       },
     };
     if (serviceHeroes[page.key]) {
