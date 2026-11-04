@@ -20,7 +20,7 @@ Otvori http://127.0.0.1:3000. `/`, `/index.html` i `/index-5.html` otvaraju novu
 - `js/custom.js`: aktivni meni, focus trap/Escape, sticky header i scroll. Aktivna stavka se postavlja statički za svaku stranicu; stari homepage hash linkovi preusmeravaju na nove stranice.
 - `js/hero-comparison.js`: dva para pre/posle. Prljavo stanje 2 sekunde, otkrivanje čiste slike 1,4 sekunde, čisto stanje 2,6 sekundi, pa sledeći prostor. Automatski prikaz bez vidljivih kontrola i oznaka; reduced motion i zaustavljanje van viewport-a/skrivenog taba. Originalni Revolution fajlovi su sačuvani, ali se više ne učitavaju.
 - `js/site.config.js`: jedino mesto za brend, kontakt kanale, budući endpoint i domen.
-- `js/site.js`: prikaz konfiguracije i validacija/priprema upita. Bez localStorage/cookies, analitike ili marketinških skripti.
+- `js/site.js`: prikaz konfiguracije i validacija/priprema upita. Podaci forme se ne čuvaju. Google Ads merenje i pristanak opisani su u odeljku ispod.
 - `politika-privatnosti.html`, `uslovi-koriscenja.html`: jasno označena obaveštenja/nacrti, `noindex`; nisu konačni pravni dokumenti.
 - `fonts/roboto`, `css/fonts.css`: lokalni Roboto; ikonice ostaju iz template-a. Nema Google Fonts zahteva u aktivnoj stranici.
 - `.template-backup/`: originalni demo HTML i originalni izmenjeni JS, kao i jednokratne skripte. Nije javna ruta. Ne objavljivati ovaj folder na statičkom hostingu.
@@ -62,3 +62,17 @@ Shop, payment, login, blog, društveni demo linkovi, podrška/kupovina autora te
 Hero slike, tačni Imagegen promptovi i provera prelaza dokumentovani su u `docs/hero-images.md`.
 
 Potvrđene početne cene i obim usluga uneti su po dostavljenom cenovniku u `content/cenovnik.html`. Ovaj fajl je izvor za izmene cena; nakon izmena pokrenuti `npm run build`. Cenovnik uključuje pet glavnih usluga, šest dodatnih, minimalne iznose i redovno održavanje. Kalkulator se ne obračunava automatski.
+
+
+## Telefonska dugmad i Google Ads (4. novembar 2026.)
+
+Aktuelni broj je `+381603273705` (060 327 3705), za poziv, WhatsApp i Viber.
+`configure-site.mjs` povezuje telefonske linkove sa brojem iz konfiguracije, zadržava otvaranje stranica usluga preko dugmeta „Zatraži procenu” na karticama i dodaje stalno dugme za poziv na svih 26 stranica. Linkovi rade bez JavaScript-a.
+
+U Google Ads nalogu Pametna Rešenja kreirana je akcija **Čišćenje Beograd – klik na telefon 0603273705**, ID `7889149877`, odredište `AW-18482209563/D1l5CLW_67EdEJvGgO1E`. Kategorija Contact, brojanje One, bez novčane vrednosti. Privremeno je Secondary i nije uključena u account-level goals, kako ne bi uticala na postojeće kampanje. Za buduću kampanju čišćenja treba zasebno izabrati odgovarajući cilj i optimizaciju. Nijedna kampanja nije kreirana niti pokrenuta ovim izmenama.
+
+`js/phone-conversion.js` meri samo klik na `tel:` link za podešeni broj; ne učitavanje stranice, otvaranje formulara ili potvrđen razgovor. Google tag se učitava samo na HTTPS produkcionom domenu iz `SITE_URL` i tek nakon pristanka. Odbijanje ne ometa pozive. Pristanak se može promeniti u podnožju i čuva se do 180 dana. Personalizacija i enhanced conversions su isključeni. Lokalni razvoj ne šalje Google događaje.
+
+Provere: `npm run check` i `node scripts/test-phone-conversion.mjs` (simulacija pristanka i događaja, bez mrežnih poziva). Provereno 119 telefonskih CTA/linkova na 26 stranica. Google Ads potvrda je `docs/google-ads-phone-conversion.png`.
+
+Izmene su pripremljene lokalno. Pre korišćenja u kampanji objaviti generisane HTML fajlove, `css/custom.css` i JS fajlove zajedno, zatim proveriti Google tag i stvarno merenje na javnom domenu. Status kreirane akcije pri pripremi: Awaiting conversions.

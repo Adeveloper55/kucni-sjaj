@@ -1424,6 +1424,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 body[data-page="kontakt"] .rise-item { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
 
+/* A permanent call action on every page, with room above the safe area. */
+body { padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)); }
+.persistent-call {
+  position: fixed; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: 20px;
+  z-index: 1100; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 54px; padding: 14px 24px; border-radius: 999px;
+  background: var(--dom-navy, #10234b); color: #fff; font-weight: 700;
+  box-shadow: 0 4px 24px #0004; border: 2px solid #fff;
+}
+.persistent-call:hover, .persistent-call:focus-visible { color: #fff; background: #183e66; }
+.persistent-call:focus-visible { outline: 3px solid #d8b76a; outline-offset: 3px; }
+@media (max-width: 575px) { .persistent-call { left: 16px; right: 16px; padding: 12px 18px; } }
+@media print { .persistent-call { display: none; } body { padding-bottom: 0; } }
+
+.measurement-consent { position: fixed; left: 16px; bottom: calc(88px + env(safe-area-inset-bottom, 0px)); z-index: 1200; width: min(440px, calc(100% - 32px)); padding: 20px; background: #fff; color: #173344; border: 1px solid #173344; border-radius: 12px; box-shadow: 0 4px 24px #0003; }
+.measurement-consent[hidden] { display: none; }
+.measurement-consent p { margin: 0 0 12px; }
+.measurement-consent a { text-decoration: underline; }
+.measurement-consent > div { display: flex; flex-wrap: wrap; gap: 10px; }
+.measurement-consent button { border: 1px solid #173344; background: #fff; color: #173344; padding: 10px 14px; border-radius: 6px; min-height: 44px; }
+.measurement-settings { background: transparent; color: inherit; border: 0; text-decoration: underline; padding: 8px; }
+@media print { .measurement-consent, .measurement-settings { display: none; } }
+
 /* Hero tekst ulazi odmah, bez čekanja skripte. Wipe pre/posle ostaje. */
 @keyframes hero-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: no-preference) {

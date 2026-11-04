@@ -57,7 +57,18 @@ function contacts(html) {
     const pattern = new RegExp(`(<(span|dd)[^>]*data-contact-value="${channel.key}"[^>]*>)[\\s\\S]*?(<\\/\\2>)`, 'g');
     html = html.replace(pattern, (_, open, tag, close) => open + `<a href="${escape(channel.url(value))}">${escape(value)}</a>` + close);
   }
-  if (valid(config.PHONE_NUMBER)) html = html.replace(/<p\b[^>]*class="contact-pending"[^>]*>[\s\S]*?<\/p>/g, '');
+  if (valid(config.PHONE_NUMBER)) {
+    const phoneURL = escape(channels.phone.url(config.PHONE_NUMBER));
+    // Render working phone links even when JavaScript is disabled.
+    html = html.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/g, (full, attributes, label) => {
+      // Service cards open their detail page; call actions dial the configured number.
+      if (/Zatraži procenu/.test(label) && /href="(?!kontakt\.html)[^"?#]+\.html"/.test(attributes)) return full;
+      if (!/\bdata-contact="phone"/.test(attributes) && !/Zatraži procenu/.test(label)) return full;
+      const attrs = attributes.replace(/\s+href="[^"]*"/g, '').replace(/\s+data-contact="phone"/g, '');
+      return `<a${attrs} data-contact="phone" href="${phoneURL}">${label}</a>`;
+    });
+    html = html.replace(/<p\b[^>]*class="contact-pending"[^>]*>[\s\S]*?<\/p>/g, '');
+  }
   return html;
 }
 function template(html, values) {
@@ -172,7 +183,7 @@ function pageBanner(page, config) {
     'o-nama': `<section class="page-banner banner-story" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Čišćenje u Beogradu čisti stanove i kuće u Beogradu da uredan dom ne čeka slobodnu subotu. Dolazimo na adresu koju navedete, u termin koji prvo potvrdimo.</p><p>Nismo šalter na koji donosite stan. Razgovor počinje od toga kako prostor izgleda, koje prostorije traže više pažnje i šta ne sme da se dira. Tek tada biramo obim, a ne unapred sastavljen paket.</p><p>Pažnja ide na vaš dom: podove koje gazite, kuhinju u kojoj se kuva i kupatilo koje se vidi svako jutro. Cena i vreme stoje na stolu pre dolaska.</p><p class="banner-sign">Čišćenje u Beogradu · čišćenje stanova u Beogradu</p></div>${shot('images/banners/o-nama.webp', 864, 1152, 'Nameštena spavaća soba sa maslinastom dekom, lampom i prozorom')}</div></section>`,
     faq: `<section class="page-banner banner-split" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Kratki odgovori pre nego što zakažete: šta ulazi u čišćenje, koliko traje, da li morate da budete kod kuće i kako nastaje cena.</p><div class="banner-questions"><p>Da li moram da budem kod kuće celog dana?</p><p>Kako znate cenu pre dolaska?</p><p>Šta da kažem za ljubimce, sredstva i stvari koje ne dirate?</p></div><p>Ako vaše pitanje nije među ovima, pozovite. Kraći je razgovor nego nagađanje tek kad se vrata otvore.</p></div>${shot('images/banners/faq.webp', 1152, 864, 'Dve šolje, telefon i zatvorena sveska na kuhinjskom pultu')}</div></section>`,
     kontakt: `<section class="page-banner banner-flip banner-reach" aria-labelledby="page-title"><div class="container-fluid page-banner-grid">${shot('images/banners/kontakt.webp', 1152, 864, 'Telefon, ključevi i vaza na drvenoj konzoli uz tamnoplavi zid')}<div class="page-banner-copy">${head}<p>Javite nam kakav je stan i šta želite da bude očišćeno. Uzvratimo predlogom termina i cenom, pre dolaska.</p><ul class="banner-points"><li><strong>Šta da kažete</strong><span>Vrsta usluge, približna kvadratura, deo Beograda i jedna rečenica o prioritetu.</span></li><li><strong>Gde nas dobijate</strong><span>Telefon, WhatsApp i Viber: <a href="tel:${tel}">${phone}</a>. Zona rada je Beograd.</span></li><li><strong>Šta nije rezervacija</strong><span>Željeni datum je predlog. Termin važi kad ga potvrdimo, a forma sama po sebi ne šalje upit.</span></li></ul></div></div></section>`,
-    'politika-privatnosti': `<section class="page-banner banner-split banner-calm" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Kad nas pozovete ili pišete, čujemo ono što treba za dogovor: ime, telefon, kakav je stan i šta treba očistiti. To koristimo za termin, cenu i samo čišćenje.</p><p>Sajt ne stavlja kolačiće i ne pravi profil posete. Forma na stranici Kontakt ne šalje unete podatke i ne čuva ih. Upit koji treba da stigne do nas ide telefonom, WhatsApp-om ili Viberom.</p><p>Možete da tražite uvid ili brisanje podataka koje imamo iz razgovora. Ispod je ceo tekst, uključujući kome da se obratite ako obrada nije u redu.</p></div>${shot('images/banners/privatnost.webp', 1152, 864, 'Fotelja, zatvorena knjiga i šolja pored prozora sa zavesom')}</div></section>`,
+    'politika-privatnosti': `<section class="page-banner banner-split banner-calm" aria-labelledby="page-title"><div class="container-fluid page-banner-grid"><div class="page-banner-copy">${head}<p>Kad nas pozovete ili pišete, čujemo ono što treba za dogovor: ime, telefon, kakav je stan i šta treba očistiti. To koristimo za termin, cenu i samo čišćenje.</p><p>Google Ads merenje koristi se samo uz vaš pristanak, koji možete promeniti u podnožju sajta. Forma na stranici Kontakt ne šalje unete podatke i ne čuva ih. Upit koji treba da stigne do nas ide telefonom, WhatsApp-om ili Viberom.</p><p>Možete da tražite uvid ili brisanje podataka koje imamo iz razgovora. Ispod je ceo tekst, uključujući kome da se obratite ako obrada nije u redu.</p></div>${shot('images/banners/privatnost.webp', 1152, 864, 'Fotelja, zatvorena knjiga i šolja pored prozora sa zavesom')}</div></section>`,
     'uslovi-koriscenja': `<section class="page-banner banner-flip" aria-labelledby="page-title"><div class="container-fluid page-banner-grid">${shot('images/banners/uslovi.webp', 1152, 864, 'Dva priveska sa ključevima na kamenoj tacni pored vrata stana')}<div class="page-banner-copy">${head}<p>Pregled sajta nije ugovor. Rezervacija nastaje tek kad potvrdimo obim, cenu i vreme dolaska. Klik na Pošalji ne zakazuje čišćenje i ne naplaćuje ništa.</p><p>Cenovnik pokazuje početne cene. Iznos za vaš stan kažemo pre rada, a plaćanje se dogovara uz tu cenu. Na sajtu nema kartica ni online uplate.</p><ul class="banner-points"><li><strong>Dan dolaska</strong><span>Treba nam ulazak u potvrđeno vreme i kratko uputstvo šta ne dirati.</span></li><li><strong>Otkazivanje</strong><span>Termin pomerite ili otkažite porukom ili pozivom, što ranije.</span></li><li><strong>Fotografije</strong><span>Slike na sajtu su ilustracije prostora, ne snimak konkretnog završenog posla.</span></li></ul></div></div></section>`,
   };
   return banners[page.key] || banners.usluge;
@@ -234,6 +245,7 @@ for (const page of [...pages, ...legal]) {
   const pageScripts = home
     ? scripts.replace(/<script defer src="js\/custom\.js(?:\?v=\d+)?">/, `${sliderScripts}\n<script defer src="js/custom.js?v=13">`)
     : scripts;
+  html += '<a class="persistent-call" data-contact="phone" href="#" aria-label="Pozovi za procenu"><i class="fa fa-phone" aria-hidden="true"></i><span>Pozovi <span data-call-number>' + escape(config.PHONE_NUMBER || '') + '</span></span></a>\n';
   html += pageScripts + '\n</body>\n</html>\n';
   // Keep configuration ahead of site.js; all scripts are defer and execute in document order.
   html = contacts(brand(links(html)));

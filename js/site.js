@@ -23,6 +23,7 @@
     document.querySelectorAll(`[data-contact="${name}"]`).forEach(button => {
       const link = document.createElement('a'); link.href = channel.url(value); link.className = button.className;
       link.innerHTML = button.innerHTML; link.dataset.contact = name;
+      if (button.hasAttribute('aria-label')) link.setAttribute('aria-label', button.getAttribute('aria-label'));
       if (name === 'phone') link.querySelector('[data-phone-hint]')?.remove();
       button.replaceWith(link);
     });
